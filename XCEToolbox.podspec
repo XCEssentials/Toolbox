@@ -23,26 +23,38 @@ Pod::Spec.new do |s|
   s.license                   = { :type => 'MIT', :file => 'LICENSE' }
   s.author                    = { 'Maxim Khatskevich' => 'maxim@khatskevi.ch' }
 
+  # ===
+
   s.default_subspec = 'Core'
 
-  s.subspec 'Core' do |ss|
+  s.subspec 'Core' do |core|
 
-    ss.osx.deployment_target  = '10.11'
-    ss.ios.deployment_target  = '9.0'
+    core.osx.deployment_target   = '10.11'
+    core.ios.deployment_target   = '9.0'
 
-    ss.source_files           = 'Sources/Core/**/*.swift'
+    core.source_files            = 'Sources/Core/**/*.swift'
 
   end
 
-  # s.subspec 'UIKit' do |ss|
+  # ===
 
-  #   ss.ios.deployment_target  = '9.0'
+  s.subspec 'Models' do |mds|
 
-  #   ss.framework              = 'UIKit'
-  #   ss.dependency               s.name + '/Core'
+    mds.osx.deployment_target    = '10.11'
+    mds.ios.deployment_target    = '9.0'
+
+    mds.dependency                 s.name + '/Core'
+
+    mds.dependency                 'XCEUniFlow/MVVM', '~> 4.8'
   
-  #   ss.source_files           = 'Sources/UIKit/**/*.swift'
+    # ===
 
-  # end
+    mds.subspec 'ServiceProvider' do |sp|
+    
+      sp.source_files            = 'Sources/Models/ServiceProvider/**/*.swift'
+
+    end
+
+  end
 
 end

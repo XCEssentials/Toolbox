@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B4F7668FA7EF16A50187AFC /* Pods_Fwk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B94A2425866CB41C7C671F /* Pods_Fwk.framework */; };
 		694B5B2847B0C1A150062E96 /* Scopes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD158AB4472401AD3B982850 /* Scopes.swift */; };
 		940BB0881F815DDD00AFF449 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940BB0871F815DDD00AFF449 /* Entity.swift */; };
 		940BB08A1F815E2100AFF449 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940BB0891F815E2100AFF449 /* Service.swift */; };
@@ -27,9 +28,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		38EEEBFE4C97DCD9DB9E36CD /* Fwk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Fwk.framework; path = XCEToolbox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		38EEEBFE4C97DCD9DB9E36CD /* XCEToolbox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XCEToolbox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		66B94A2425866CB41C7C671F /* Pods_Fwk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fwk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		940BB0871F815DDD00AFF449 /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 		940BB0891F815E2100AFF449 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		940BB0981F81931600AFF449 /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
+		A1013A816A999A5D4AD842AF /* Pods-Fwk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fwk.release.xcconfig"; path = "Pods/Target Support Files/Pods-Fwk/Pods-Fwk.release.xcconfig"; sourceTree = "<group>"; };
+		AF4A12F7B04616070BB1A10D /* Pods-Fwk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fwk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Fwk/Pods-Fwk.debug.xcconfig"; sourceTree = "<group>"; };
 		C8D4EEB216084F8CFAD89283 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		DD158AB4472401AD3B982850 /* Scopes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Scopes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -40,6 +45,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD2FB7F667CCC8921706B6A6 /* Foundation.framework in Frameworks */,
+				3B4F7668FA7EF16A50187AFC /* Pods_Fwk.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,19 +60,37 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
+		35524CD8DC2B5BDB5178B623 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AF4A12F7B04616070BB1A10D /* Pods-Fwk.debug.xcconfig */,
+				A1013A816A999A5D4AD842AF /* Pods-Fwk.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		39824A6E01C209A8BBAFA997 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				E83922EFD2EF7F1804330459 /* $local */,
 				1E319B7A7585EC756E46A59F /* iOS */,
+				66B94A2425866CB41C7C671F /* Pods_Fwk.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		940BB0921F81887A00AFF449 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				940BB0981F81931600AFF449 /* ServiceProvider.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		B6E0ACA831A864779B1EBC56 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				38EEEBFE4C97DCD9DB9E36CD /* Fwk.framework */,
+				38EEEBFE4C97DCD9DB9E36CD /* XCEToolbox.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -77,6 +101,7 @@
 				39824A6E01C209A8BBAFA997 /* Frameworks */,
 				B6E0ACA831A864779B1EBC56 /* Products */,
 				E5E937FAC07C7EA60EE8997D /* Sources */,
+				35524CD8DC2B5BDB5178B623 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -84,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				F39C0A1A2766EE87A837BA34 /* Core */,
+				940BB0921F81887A00AFF449 /* Models */,
 			);
 			path = Sources;
 			sourceTree = SOURCE_ROOT;
@@ -112,10 +138,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 555724425D9502A3513678F6 /* Build configuration list for PBXNativeTarget "Fwk" */;
 			buildPhases = (
+				605C8D3534762C28ABB14CBC /* [CP] Check Pods Manifest.lock */,
 				B95ABED9A445B642F954FB95 /* SwiftLint */,
 				CEFC0CE9EAC1523B4984CEC9 /* Sources */,
 				6515EC2CC10696C3F62B507A /* Frameworks */,
 				C6DB2BC64BB2D8DF6DD9F7CD /* Embed Frameworks */,
+				A1B1467A11A4869CB0B44C46 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -123,7 +151,7 @@
 			);
 			name = Fwk;
 			productName = Fwk;
-			productReference = 38EEEBFE4C97DCD9DB9E36CD /* Fwk.framework */;
+			productReference = 38EEEBFE4C97DCD9DB9E36CD /* XCEToolbox.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -154,6 +182,39 @@
 /* End PBXProject section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		605C8D3534762C28ABB14CBC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Fwk-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A1B1467A11A4869CB0B44C46 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Fwk/Pods-Fwk-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		B95ABED9A445B642F954FB95 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -186,6 +247,7 @@
 /* Begin XCBuildConfiguration section */
 		28C0B9A5EB29FA12AEBE2B00 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A1013A816A999A5D4AD842AF /* Pods-Fwk.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CURRENT_PROJECT_VERSION = 0;
@@ -193,7 +255,6 @@
 				ENABLE_TESTABILITY = YES;
 				INFOPLIST_FILE = Info/Fwk.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.XCEssentials.Toolbox;
 				PRODUCT_NAME = XCEToolbox;
@@ -249,7 +310,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -261,6 +322,7 @@
 		};
 		82B39CBDAAB3854900FD572C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AF4A12F7B04616070BB1A10D /* Pods-Fwk.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CURRENT_PROJECT_VERSION = 0;
@@ -268,7 +330,6 @@
 				ENABLE_TESTABILITY = YES;
 				INFOPLIST_FILE = Info/Fwk.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = true;
 				PRODUCT_BUNDLE_IDENTIFIER = io.XCEssentials.Toolbox;
@@ -319,7 +380,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.1;

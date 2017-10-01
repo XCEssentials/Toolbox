@@ -11,18 +11,18 @@ use_frameworks!
 
 def sharedPods
 
-	# 
+	pod 'XCEUniFlow/MVVM', '~> 4.8'
 
 end
 
 #===
 
-# target 'Fwk' do
+target 'Fwk' do
 
-# 	project projName
+	project projName
 
-# 	#===
+	#===
 
-# 	sharedPods
+	sharedPods
 
-# end
+end
