@@ -52,6 +52,7 @@ Pod::Spec.new do |s|
       bi.framework               = 'Foundation'
 
       bi.dependency                'PMJSON', '~> 2.0'
+      bi.dependency                'XCERequirement', '~> 1.6'
 
       bi.source_files            = 'Sources/Services/BundleInfo.swift'
 
