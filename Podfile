@@ -9,20 +9,13 @@ use_frameworks!
 
 #===
 
-def sharedPods
-
-	pod 'XCEUniFlow/MVVM', '~> 4.8'
-
-end
-
-#===
-
 target 'Fwk' do
 
 	project projName
 
 	#===
 
-	sharedPods
+	pod 'XCEUniFlow/MVVM', '~> 4.8'
+    pod 'PMJSON', '~> 2.0'
 
 end

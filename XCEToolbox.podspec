@@ -36,7 +36,30 @@ Pod::Spec.new do |s|
 
   end
 
-  # ===
+  # === SERVICES
+
+  s.subspec 'Services' do |srv|
+
+    srv.osx.deployment_target    = '10.11'
+    srv.ios.deployment_target    = '9.0'
+
+    srv.dependency                 s.name + '/Core'
+  
+    # ===
+
+    srv.subspec 'BundleInfo' do |bi|
+    
+      bi.framework               = 'Foundation'
+
+      bi.dependency                'PMJSON', '~> 2.0'
+
+      bi.source_files            = 'Sources/Services/BundleInfo.swift'
+
+    end
+
+  end
+
+  # === MODELS
 
   s.subspec 'Models' do |mds|
 
@@ -51,10 +74,10 @@ Pod::Spec.new do |s|
 
     mds.subspec 'ServiceProvider' do |sp|
     
-      sp.source_files            = 'Sources/Models/ServiceProvider/**/*.swift'
+      sp.source_files            = 'Sources/Models/ServiceProvider.swift'
 
     end
-
+  
   end
 
 end
