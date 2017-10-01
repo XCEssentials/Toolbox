@@ -12,6 +12,7 @@
 		940BB0881F815DDD00AFF449 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940BB0871F815DDD00AFF449 /* Entity.swift */; };
 		940BB08A1F815E2100AFF449 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940BB0891F815E2100AFF449 /* Service.swift */; };
 		940BB09B1F81954900AFF449 /* BundleInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940BB09A1F81954900AFF449 /* BundleInfo.swift */; };
+		940BB0A01F81A97E00AFF449 /* AppInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940BB09F1F81A94100AFF449 /* AppInitializer.swift */; };
 		CD2FB7F667CCC8921706B6A6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8D4EEB216084F8CFAD89283 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		940BB0891F815E2100AFF449 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		940BB0981F81931600AFF449 /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
 		940BB09A1F81954900AFF449 /* BundleInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleInfo.swift; sourceTree = "<group>"; };
+		940BB09F1F81A94100AFF449 /* AppInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInitializer.swift; sourceTree = "<group>"; };
 		A1013A816A999A5D4AD842AF /* Pods-Fwk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fwk.release.xcconfig"; path = "Pods/Target Support Files/Pods-Fwk/Pods-Fwk.release.xcconfig"; sourceTree = "<group>"; };
 		AF4A12F7B04616070BB1A10D /* Pods-Fwk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fwk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Fwk/Pods-Fwk.debug.xcconfig"; sourceTree = "<group>"; };
 		C8D4EEB216084F8CFAD89283 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
@@ -84,7 +86,6 @@
 		940BB0921F81887A00AFF449 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				940BB0981F81931600AFF449 /* ServiceProvider.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -95,6 +96,14 @@
 				940BB09A1F81954900AFF449 /* BundleInfo.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		940BB09E1F81A94100AFF449 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				940BB09F1F81A94100AFF449 /* AppInitializer.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		B6E0ACA831A864779B1EBC56 /* Products */ = {
@@ -119,8 +128,10 @@
 			isa = PBXGroup;
 			children = (
 				F39C0A1A2766EE87A837BA34 /* Core */,
-				940BB0991F81953200AFF449 /* Services */,
 				940BB0921F81887A00AFF449 /* Models */,
+				940BB0981F81931600AFF449 /* ServiceProvider.swift */,
+				940BB0991F81953200AFF449 /* Services */,
+				940BB09E1F81A94100AFF449 /* ViewModels */,
 			);
 			path = Sources;
 			sourceTree = SOURCE_ROOT;
@@ -249,6 +260,7 @@
 			files = (
 				940BB0881F815DDD00AFF449 /* Entity.swift in Sources */,
 				940BB09B1F81954900AFF449 /* BundleInfo.swift in Sources */,
+				940BB0A01F81A97E00AFF449 /* AppInitializer.swift in Sources */,
 				694B5B2847B0C1A150062E96 /* Scopes.swift in Sources */,
 				940BB08A1F815E2100AFF449 /* Service.swift in Sources */,
 			);

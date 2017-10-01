@@ -80,4 +80,27 @@ Pod::Spec.new do |s|
   
   end
 
+  # === VIEW MODELS
+
+  s.subspec 'ViewModels' do |vms|
+
+    vms.osx.deployment_target    = '10.11'
+    vms.ios.deployment_target    = '9.0'
+
+    vms.dependency                 s.name + '/Core'
+
+    vms.dependency                 'XCEUniFlow/MVVM', '~> 4.8'
+  
+    # ===
+
+    vms.subspec 'AppInitializer' do |ai|
+    
+      ai.dependency                 s.name + '/Services/BundleInfo'
+
+      ai.source_files            = 'Sources/ViewModels/AppInitializer.swift'
+
+    end
+  
+  end
+
 end
