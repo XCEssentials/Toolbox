@@ -102,6 +102,13 @@ Pod::Spec.new do |s|
 
     end
   
+    # ===
+
+    vms.subspec 'App' do |ap|
+    
+      ap.source_files            = 'Sources/ViewModels/App.swift'
+
+    end
   end
 
 end
