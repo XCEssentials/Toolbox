@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		694B5B2847B0C1A150062E96 /* Scopes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD158AB4472401AD3B982850 /* Scopes.swift */; };
+		940BB0881F815DDD00AFF449 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940BB0871F815DDD00AFF449 /* Entity.swift */; };
+		940BB08A1F815E2100AFF449 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940BB0891F815E2100AFF449 /* Service.swift */; };
 		CD2FB7F667CCC8921706B6A6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8D4EEB216084F8CFAD89283 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,7 +27,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		38EEEBFE4C97DCD9DB9E36CD /* Fwk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Fwk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		38EEEBFE4C97DCD9DB9E36CD /* Fwk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Fwk.framework; path = XCEToolbox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		940BB0871F815DDD00AFF449 /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
+		940BB0891F815E2100AFF449 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		C8D4EEB216084F8CFAD89283 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		DD158AB4472401AD3B982850 /* Scopes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Scopes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,7 +85,6 @@
 			children = (
 				F39C0A1A2766EE87A837BA34 /* Core */,
 			);
-			name = Sources;
 			path = Sources;
 			sourceTree = SOURCE_ROOT;
 		};
@@ -89,15 +92,16 @@
 			isa = PBXGroup;
 			children = (
 			);
-			name = "$local";
+			name = $local;
 			sourceTree = "<group>";
 		};
 		F39C0A1A2766EE87A837BA34 /* Core */ = {
 			isa = PBXGroup;
 			children = (
 				DD158AB4472401AD3B982850 /* Scopes.swift */,
+				940BB0871F815DDD00AFF449 /* Entity.swift */,
+				940BB0891F815E2100AFF449 /* Service.swift */,
 			);
-			name = Core;
 			path = Core;
 			sourceTree = "<group>";
 		};
@@ -163,7 +167,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
-			showEnvVarsInLog = 1;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -172,7 +175,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				940BB0881F815DDD00AFF449 /* Entity.swift in Sources */,
 				694B5B2847B0C1A150062E96 /* Scopes.swift in Sources */,
+				940BB08A1F815E2100AFF449 /* Service.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
