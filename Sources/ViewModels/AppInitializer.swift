@@ -30,31 +30,28 @@ import XCEUniFlow
 
 //===
 
+/**
+ Special feature that implements initial app setup in its bindings.
+ */
 public
-extension VM
-{
-    /**
-     Special feature that implements initial app setup in its bindings.
-     */
-    public
-    enum AppInitializer: ViewModel, NoBindings
-    {
-        public
-        struct Running: State
-        {
-            public
-            typealias Parent = AppInitializer
+protocol AppInitializer: ViewModel { }
 
-            public
-            let bundleInfo: M.BundleInfo.Storage
-        }
-    }
+//===
+
+public
+struct Running<T: AppInitializer>: State
+{
+    public
+    typealias Parent = T
+
+    public
+    let bundleInfo: M.BundleInfo.Storage
 }
 
 // MARK: - Actions
 
 public
-extension VM.AppInitializer
+extension AppInitializer
 {
     /**
      This action initiates the app initialization and schedules its own deinitialization right away. If the app initialization will go well (that supposed to happen exactly once per app launch), then it will triggers all the necessary initializations that supposed to be declared in bindings of this view model.
@@ -62,7 +59,7 @@ extension VM.AppInitializer
     static
     func run(with bundle: Bundle, appSetup: Action) -> Action
     {
-        return initialize.Into<Running>.via { become, submit in
+        return initialize.Into<Running<Self>>.via { become, submit in
 
             become << Running(
                 // swiftlint:disable:next force_try
