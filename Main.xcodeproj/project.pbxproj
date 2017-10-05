@@ -15,6 +15,7 @@
 		940BB0A01F81A97E00AFF449 /* AppInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940BB09F1F81A94100AFF449 /* AppInitializer.swift */; };
 		940BB0A21F81AE0200AFF449 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940BB0A11F81AE0200AFF449 /* App.swift */; };
 		940BB0A41F81B22800AFF449 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940BB0A31F81B22400AFF449 /* ServiceProvider.swift */; };
+		940BB0A61F81BBD700AFF449 /* ConcurrentProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940BB0A51F81BBD600AFF449 /* ConcurrentProcess.swift */; };
 		CD2FB7F667CCC8921706B6A6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8D4EEB216084F8CFAD89283 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +41,7 @@
 		940BB09F1F81A94100AFF449 /* AppInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInitializer.swift; sourceTree = "<group>"; };
 		940BB0A11F81AE0200AFF449 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		940BB0A31F81B22400AFF449 /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
+		940BB0A51F81BBD600AFF449 /* ConcurrentProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcurrentProcess.swift; sourceTree = "<group>"; };
 		A1013A816A999A5D4AD842AF /* Pods-Fwk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fwk.release.xcconfig"; path = "Pods/Target Support Files/Pods-Fwk/Pods-Fwk.release.xcconfig"; sourceTree = "<group>"; };
 		AF4A12F7B04616070BB1A10D /* Pods-Fwk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fwk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Fwk/Pods-Fwk.debug.xcconfig"; sourceTree = "<group>"; };
 		C8D4EEB216084F8CFAD89283 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
@@ -90,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				940BB0A31F81B22400AFF449 /* ServiceProvider.swift */,
+				940BB0A51F81BBD600AFF449 /* ConcurrentProcess.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 				940BB0A21F81AE0200AFF449 /* App.swift in Sources */,
 				694B5B2847B0C1A150062E96 /* Scopes.swift in Sources */,
 				940BB08A1F815E2100AFF449 /* Service.swift in Sources */,
+				940BB0A61F81BBD700AFF449 /* ConcurrentProcess.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

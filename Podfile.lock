@@ -1,5 +1,6 @@
 PODS:
   - PMJSON (2.0.3)
+  - XCEOperationFlow (4.1.2)
   - XCERequirement (1.6.0)
   - XCEUniFlow/Core (4.8.0):
     - XCERequirement (~> 1.6)
@@ -8,13 +9,15 @@ PODS:
 
 DEPENDENCIES:
   - PMJSON (~> 2.0)
+  - XCEOperationFlow (~> 4.1)
   - XCEUniFlow/MVVM (~> 4.8)
 
 SPEC CHECKSUMS:
   PMJSON: b3ebd15f72b8c67a0168f868140c140575885567
+  XCEOperationFlow: bce49c31278fed5eba35f4d422a994dc8638218d
   XCERequirement: 4dbe5a3e19b4784dc3c6943ec9b929e7f7dd7ff5
   XCEUniFlow: 0710f6ba75d0331ce1f840c624df9ca9f1f86177
 
-PODFILE CHECKSUM: faf75fcf1d347f7816e242997a15562e4ac86ed0
+PODFILE CHECKSUM: 102fe025e30a23f3c7045296fd287447b8ac15cd
 
 COCOAPODS: 1.3.1

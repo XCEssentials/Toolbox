@@ -79,6 +79,18 @@ Pod::Spec.new do |s|
 
     end
   
+    # ===
+
+    mds.subspec 'ConcurrentProcess' do |cp|
+    
+      cp.framework               = 'Foundation'
+
+      cp.dependency                'XCEOperationFlow', '~> 4.1'
+
+      cp.source_files            = 'Sources/Models/ConcurrentProcess.swift'
+
+    end
+  
   end
 
   # === VIEW MODELS
