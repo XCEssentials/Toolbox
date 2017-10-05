@@ -36,7 +36,7 @@ public
 extension M
 {
     public
-    struct ConcurrentProcess<Input, Result>: Model, NoBindings
+    enum ConcurrentProcess<Input, Result>: Model, NoBindings
     {
         public
         struct Idle: StateAuto

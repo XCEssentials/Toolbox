@@ -32,7 +32,7 @@ public
 extension M
 {
     public
-    struct Provider<Service: XCEToolbox.Service>: Model, NoBindings
+    enum Provider<Service: XCEToolbox.Service>: Model, NoBindings
     {
         public
         struct Ready: State
