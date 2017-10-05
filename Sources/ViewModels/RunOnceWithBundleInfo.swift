@@ -34,12 +34,12 @@ import XCEUniFlow
  Special feature that implements initial app setup in its bindings.
  */
 public
-protocol AppInitializer: ViewModel { }
+protocol RunOnceWithBundleInfo: ViewModel { }
 
 //===
 
 public
-struct Running<T: AppInitializer>: State
+struct Running<T: RunOnceWithBundleInfo>: State
 {
     public
     typealias Parent = T
@@ -51,7 +51,7 @@ struct Running<T: AppInitializer>: State
 // MARK: - Actions
 
 public
-extension AppInitializer
+extension RunOnceWithBundleInfo
 {
     /**
      This action initiates the app initialization and schedules its own deinitialization right away. If the app initialization will go well (that supposed to happen exactly once per app launch), then it will triggers all the necessary initializations that supposed to be declared in bindings of this view model.

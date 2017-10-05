@@ -106,11 +106,11 @@ Pod::Spec.new do |s|
   
     # ===
 
-    vms.subspec 'AppInitializer' do |ai|
+    vms.subspec 'RunOnceWithBundleInfo' do |ai|
     
       ai.dependency                 s.name + '/Services/BundleInfo'
 
-      ai.source_files            = 'Sources/ViewModels/AppInitializer.swift'
+      ai.source_files            = 'Sources/ViewModels/RunOnceWithBundleInfo.swift'
 
     end
   
