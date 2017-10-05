@@ -106,19 +106,19 @@ Pod::Spec.new do |s|
   
     # ===
 
-    vms.subspec 'RunOnceWithBundleInfo' do |ai|
+    vms.subspec 'RunOnceWithBundleInfo' do |ro|
     
-      ai.dependency                 s.name + '/Services/BundleInfo'
+      ro.dependency                 s.name + '/Services/BundleInfo'
 
-      ai.source_files            = 'Sources/ViewModels/RunOnceWithBundleInfo.swift'
+      ro.source_files            = 'Sources/ViewModels/RunOnceWithBundleInfo.swift'
 
     end
   
     # ===
 
-    vms.subspec 'RunIndefinitely' do |ap|
+    vms.subspec 'RunIndefinitely' do |ri|
     
-      ap.source_files            = 'Sources/ViewModels/RunIndefinitely.swift'
+      ri.source_files            = 'Sources/ViewModels/RunIndefinitely.swift'
 
     end
   end
