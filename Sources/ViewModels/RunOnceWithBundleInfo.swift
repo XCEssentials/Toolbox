@@ -39,7 +39,7 @@ protocol RunOnceWithBundleInfo: ViewModel { }
 //===
 
 public
-struct Running<T: RunOnceWithBundleInfo>: State
+struct RunningOnce<T: RunOnceWithBundleInfo>: State
 {
     public
     typealias Parent = T
@@ -59,9 +59,9 @@ extension RunOnceWithBundleInfo
     static
     func run(with bundle: Bundle, appSetup: Action) -> Action
     {
-        return initialize.Into<Running<Self>>.via { become, submit in
+        return initialize.Into<RunningOnce<Self>>.via { become, submit in
 
-            become << Running(
+            become << RunningOnce(
                 // swiftlint:disable:next force_try
                 bundleInfo: try! M.BundleInfo.of(bundle)
             )

@@ -116,9 +116,9 @@ Pod::Spec.new do |s|
   
     # ===
 
-    vms.subspec 'App' do |ap|
+    vms.subspec 'RunIndefinitely' do |ap|
     
-      ap.source_files            = 'Sources/ViewModels/App.swift'
+      ap.source_files            = 'Sources/ViewModels/RunIndefinitely.swift'
 
     end
   end

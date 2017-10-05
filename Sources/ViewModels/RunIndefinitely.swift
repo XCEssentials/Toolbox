@@ -29,28 +29,28 @@ import XCEUniFlow
 //===
 
 public
-extension VM
+protocol RunIndefinitely: ViewModel { }
+
+//===
+
+public
+struct RunningIndefinitely<T: RunIndefinitely>: StateAuto
 {
     public
-    enum App: ViewModel, NoBindings
-    {
-        public
-        struct Running: StateAuto
-        {
-            public
-            typealias Parent = App
+    typealias Parent = T
 
-            public
-            init() { }
-        }
-    }
+    public
+    init() { }
 }
 
 // MARK: - Actions
 
 public
-extension VM.App
+extension RunIndefinitely
 {
     static
-    let setup = initialize.Into<Running>.automatically()
+    var setup: Action
+    {
+        return initialize.Into<RunningIndefinitely<Self>>.automatically()
+    }
 }
