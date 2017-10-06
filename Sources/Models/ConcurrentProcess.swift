@@ -151,6 +151,27 @@ extension M.ConcurrentProcess
     //===
 
     static
+    func setupAndStart(
+        with input: Input,
+        run: @escaping Implementation,
+        minDelay: TimeInterval = 0
+        ) -> Action
+    {
+        return initialize.Into<Running>.via { become, submit in
+
+            let processId = UUID()
+
+            become << Running(
+                processId: processId,
+                input: input,
+                flow: run(input, processId, submit).proxy
+            )
+        }
+    }
+
+    //===
+
+    static
     func start(
         with input: Input,
         run: @escaping Implementation,
@@ -204,10 +225,21 @@ extension M.ConcurrentProcess
 
     //===
 
-    static
-    func finish(with processId: UUID, result: Result) -> Action
+    enum AfterFinishAction
     {
-        return transition.Between<Running, Succeeded>.via { running, become, _ in
+        case none, remove, reset
+    }
+
+    //===
+
+    static
+    func finish(
+        with processId: UUID,
+        result: Result,
+        next: AfterFinishAction = .none
+        ) -> Action
+    {
+        return transition.Between<Running, Succeeded>.via { running, become, submit in
 
             try Require("This is the most recent process result.").isTrue(
 
@@ -217,6 +249,20 @@ extension M.ConcurrentProcess
             //---
 
             become << Succeeded(input: running.input, result: result)
+
+            //---
+
+            switch next
+            {
+                case .remove:
+                    submit << deinitialize.From<Succeeded>.automatically()
+
+                case .reset:
+                    submit << reset
+
+                default:
+                    break
+            }
         }
     }
 
