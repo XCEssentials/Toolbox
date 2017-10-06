@@ -29,6 +29,36 @@ import XCEUniFlow
 //===
 
 public
+protocol ServiceProviderProxy
+{
+    associatedtype Service: XCEToolbox.Service
+}
+
+//===
+
+public
+extension ServiceProviderProxy
+{
+    typealias Real = M.ServiceProvider<Service>
+
+    typealias Ready = Real.Ready
+    typealias Unavailable = Real.Unavailable
+
+    //===
+
+    static
+    func setup(with service: Service) -> Action
+    {
+        return Real.initialize.Into<Ready>.via { become, _ in
+
+            become << Ready(with: service)
+        }
+    }
+}
+
+//===
+
+public
 extension M
 {
     public
