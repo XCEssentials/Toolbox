@@ -33,6 +33,42 @@ import XCEOperationFlow
 //===
 
 public
+protocol ConcurrentProcessProxy
+{
+    associatedtype Input
+    associatedtype Result
+}
+
+//===
+
+public
+extension ConcurrentProcessProxy
+{
+    typealias Real = M.ConcurrentProcess<Input, Result>
+
+    typealias Idle = Real.Idle
+    typealias Running = Real.Running
+    typealias Failed = Real.Failed
+    typealias Succeeded = Real.Succeeded
+
+    //===
+
+    static
+    func setup() -> Action
+    {
+        return Real.setup()
+    }
+
+    static
+    func reset() -> Action
+    {
+        return Real.reset()
+    }
+}
+
+//===
+
+public
 extension M
 {
     public
