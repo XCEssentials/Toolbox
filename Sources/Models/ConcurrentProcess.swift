@@ -95,51 +95,6 @@ extension M
     }
 }
 
-// MARK: - Process customization points
-
-public
-protocol ConcurrentProcessConfig
-{
-    associatedtype _Input
-
-    typealias Implementation = (_Input, UUID, @escaping SubmitAction) -> OperationFlow
-
-    static
-    var minDelay: TimeInterval { get } // throttle
-
-    static
-    var run: Implementation { get }
-
-}
-
-//===
-
-public
-extension ConcurrentProcessConfig
-{
-    static
-    var minDelay: TimeInterval
-    {
-        return 0
-    }
-
-    //===
-
-    static
-    var run: Implementation
-    {
-        return { _, _, _ in fatalError("Override me!") }
-    }
-}
-
-//===
-
-extension M.ConcurrentProcess: ConcurrentProcessConfig
-{
-    public
-    typealias _Input = Input
-}
-
 // MARK: - Actions
 
 public
@@ -153,8 +108,18 @@ extension M.ConcurrentProcess
 
     //===
 
+    public
+    typealias Implementation =
+        (Input, UUID, @escaping SubmitAction) -> OperationFlow
+
+    //===
+
     static
-    func start(with input: Input) -> Action
+    func start(
+        with input: Input,
+        run: @escaping Implementation,
+        minDelay: TimeInterval = 0
+        ) -> Action
     {
         return transition.Into<Running>.via(same: .ok) { globalModel, become, submit in
 
@@ -178,7 +143,7 @@ extension M.ConcurrentProcess
             become << Running(
                 processId: processId,
                 input: input,
-                flow: self.run(input, processId, submit).proxy
+                flow: run(input, processId, submit).proxy
             )
         }
     }
