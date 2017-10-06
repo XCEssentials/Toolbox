@@ -32,16 +32,22 @@ public
 extension M
 {
     public
-    enum Provider<Service: XCEToolbox.Service>: Model, NoBindings
+    enum ServiceProvider<Service: XCEToolbox.Service>: Model, NoBindings
     {
         public
         struct Ready: State
         {
             public
-            typealias Parent = Provider<Service>
+            typealias Parent = ServiceProvider<Service>
 
             public
             let service: Service
+
+            public
+            init(with service: Service)
+            {
+                self.service = service
+            }
         }
 
         //===
@@ -50,10 +56,16 @@ extension M
         struct Unavailable: State
         {
             public
-            typealias Parent = Provider<Service>
+            typealias Parent = ServiceProvider<Service>
 
             public
             let reason: String
+
+            public
+            init(with reason: String)
+            {
+                self.reason = reason
+            }
         }
     }
 }
