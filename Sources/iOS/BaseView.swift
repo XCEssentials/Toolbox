@@ -4,14 +4,17 @@ import XCEFunctionalState
 
 //---
 
+public
 class BaseView: UIView
 {
     // MARK: - Stateful support
 
+    public
     let stateDispatcher = Dispatcher()
 
     // MARK: - injectable support
-    
+
+    public
     func onAfterInjected() { }
 }
 
@@ -22,6 +25,7 @@ class BaseView: UIView
 extension BaseView: Injectable
 {
     @objc
+    public
     func injected()
     {
         for subview in subviews
