@@ -1,1 +1,2 @@
+public
 protocol AutoEquatable /* Equatable */ { }
