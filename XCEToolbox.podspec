@@ -16,111 +16,33 @@ Pod::Spec.new do |s|
   
   s.source                    = { :git => companyGitHubAccount + '/' + projName + '.git', :tag => s.version }
   
-  s.osx.deployment_target     = '10.11'
-  s.ios.deployment_target     = '9.0'
   s.requires_arc              = true
   
   s.license                   = { :type => 'MIT', :file => 'LICENSE' }
   s.author                    = { 'Maxim Khatskevich' => 'maxim@khatskevi.ch' }
 
-  # ===
+  # === All platforms
 
-  s.default_subspec = 'Core'
+  s.source_files              = 'Sources/Common/**/*.swift'
+  s.resource_bundle           = { s.name + '_CommonTemplates' => 'Templates/Common/**/*.stencil' }
 
-  s.subspec 'Core' do |core|
+  s.dependency                  'SnapKit', '~> 4.0.0'
 
-    core.osx.deployment_target   = '10.11'
-    core.ios.deployment_target   = '9.0'
+  # === iOS
 
-    core.source_files            = 'Sources/Core/**/*.swift'
+  s.ios.deployment_target     = '10.0'
 
-  end
+  s.ios.source_files          = 'Sources/iOS/**/*.swift'
+  s.ios.resource_bundle       = { s.name + '_iOSTemplates' => 'Templates/iOS/**/*.stencil' }
 
-  # === SERVICES
+  s.framework                 = 'UIKit'
 
-  s.subspec 'Services' do |srv|
+  s.ios.dependency              'XCEUniFlow', '~> 4.9.0'
+  s.ios.dependency              'XCEOperationFlow', '~> 4.1.0'
+  s.ios.dependency              'XCEFunctionalState', '~> 3.1.0'
 
-    srv.osx.deployment_target    = '10.11'
-    srv.ios.deployment_target    = '9.0'
+  # === macOS
 
-    srv.dependency                 s.name + '/Core'
-  
-    # ===
-
-    srv.subspec 'BundleInfo' do |bi|
-    
-      bi.framework               = 'Foundation'
-
-      bi.dependency                'PMJSON', '~> 2.0'
-      bi.dependency                'XCERequirement', '~> 1.6'
-
-      bi.source_files            = 'Sources/Services/BundleInfo.swift'
-
-    end
-
-  end
-
-  # === MODELS
-
-  s.subspec 'Models' do |mds|
-
-    mds.osx.deployment_target    = '10.11'
-    mds.ios.deployment_target    = '9.0'
-
-    mds.dependency                 s.name + '/Core'
-
-    mds.dependency                 'XCEUniFlow/MVVM', '~> 4.8'
-  
-    # ===
-
-    mds.subspec 'ServiceProvider' do |sp|
-    
-      sp.source_files            = 'Sources/Models/ServiceProvider.swift'
-
-    end
-  
-    # ===
-
-    mds.subspec 'ConcurrentProcess' do |cp|
-    
-      cp.framework               = 'Foundation'
-
-      cp.dependency                'XCEOperationFlow', '~> 4.1'
-
-      cp.source_files            = 'Sources/Models/ConcurrentProcess.swift'
-
-    end
-  
-  end
-
-  # === VIEW MODELS
-
-  s.subspec 'ViewModels' do |vms|
-
-    vms.osx.deployment_target    = '10.11'
-    vms.ios.deployment_target    = '9.0'
-
-    vms.dependency                 s.name + '/Core'
-
-    vms.dependency                 'XCEUniFlow/MVVM', '~> 4.8'
-  
-    # ===
-
-    vms.subspec 'RunOnceWithBundleInfo' do |ro|
-    
-      ro.dependency                 s.name + '/Services/BundleInfo'
-
-      ro.source_files            = 'Sources/ViewModels/RunOnceWithBundleInfo.swift'
-
-    end
-  
-    # ===
-
-    vms.subspec 'RunIndefinitely' do |ri|
-    
-      ri.source_files            = 'Sources/ViewModels/RunIndefinitely.swift'
-
-    end
-  end
+  # s.osx.deployment_target   = '10.11'
 
 end

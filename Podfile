@@ -1,7 +1,7 @@
 repoName = 'Toolbox'
 projName = 'Main'
 
-platform :ios, '9.0'
+platform :ios, '10.0'
 
 workspace repoName
 
@@ -15,8 +15,6 @@ target 'Fwk' do
 
 	#===
 
-	pod 'XCEUniFlow/MVVM', '~> 4.8'
-    pod 'PMJSON', '~> 2.0'
-    pod 'XCEOperationFlow', '~> 4.1'
+	podspec
 
 end
