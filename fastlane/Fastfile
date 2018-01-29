@@ -47,7 +47,8 @@ platform :ios do
     # ===
 
     pod_lib_lint(
-      allow_warnings: true
+      allow_warnings: true,
+      quick: true
     )
 
     # ===

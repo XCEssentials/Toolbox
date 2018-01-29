@@ -1,0 +1,36 @@
+{% for type in types.implementing.ServiceProvider %}
+// sourcery:file:{{ type.name|replace:".","_" }}_Base.swift
+import XCEUniFlow
+
+// MARK: - States
+
+extension {{ type.name }}
+{
+    struct Ready: State { typealias Parent = {{ type.name }}
+
+        let service: Service
+    }
+
+    //---
+
+    struct Unavailable: State { typealias Parent = {{ type.name }}
+
+        let reason: String
+    }
+}
+
+// MARK: - Actions
+
+extension {{ type.name }}
+{
+    static
+    func setup(with service: Service) -> Action
+    {
+        return initialize.Into<Ready>.via { become, _ in
+
+            become << Ready(service: service)
+        }
+    }
+}
+// sourcery:end
+{% endfor %}

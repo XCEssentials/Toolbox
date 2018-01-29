@@ -5,7 +5,7 @@ import XCEProjectGenerator
 let params =
 (
     repoName: "Toolbox",
-    deploymentTarget: "8.0",
+    deploymentTarget: "9.0",
     companyIdentifier: "io.XCEssentials",
     companyPrefix: "XCE"
 )

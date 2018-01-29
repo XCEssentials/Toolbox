@@ -1,0 +1,155 @@
+{% for type in types.implementing.ConcurrentProcess %}
+// sourcery:file:{{ type.name|replace:".","_" }}_Base.swift
+import XCEUniFlow
+import XCERequirement
+import XCEOperationFlow
+
+// MARK: - States
+
+extension {{ type.name }}
+{
+    struct Idle: StateAuto { typealias Parent = {{ type.name }}
+
+    }
+
+    struct Running: State { typealias Parent = {{ type.name }}
+
+        let startedAt = Date()
+        let processId: UUID
+        let input: Input
+        let flow: OperationFlow.ActiveProxy
+    }
+
+    struct Failed: State { typealias Parent = {{ type.name }}
+
+        let input: Input
+        let error: Error
+    }
+
+    struct Succeeded: State { typealias Parent = {{ type.name }}
+
+        let input: Input
+        let output: Output
+    }
+}
+
+// MARK: - Helpers
+
+extension {{ type.name }}
+{
+    enum AfterFinishAction
+    {
+        case none, remove, reset
+    }
+
+}
+
+// MARK: - Actions
+
+extension {{ type.name }}
+{
+    static
+    func setup() -> Action
+    {
+        return initialize.Into<Idle>.automatically()
+    }
+
+    //===
+
+    static
+    func start(
+        with input: Input,
+        minDelay: TimeInterval = minDelay
+        ) -> Action
+    {
+        return transition.Into<Running>.via(same: .ok) { globalModel, become, submit in
+
+            if
+                let running = try? Running.from(globalModel)
+            {
+                try? running.flow.cancel()
+
+                //---
+
+                try Require("Threshold has been passed").isTrue(
+
+                    minDelay <= Date().timeIntervalSince(running.startedAt)
+                )
+            }
+
+            //---
+
+            let processId = UUID()
+
+            become << Running(
+                processId: processId,
+                input: input,
+                flow: run(input, processId, submit).proxy
+            )
+        }
+    }
+
+    //===
+
+    static
+    func fail(with processId: UUID, error: Error) -> Action
+    {
+        return transition.Between<Running, Failed>.via { running, become, _ in
+
+            try Require("This is the most recent process result.").isTrue(
+
+                running.processId == processId
+            )
+
+            //---
+
+            become << Failed(input: running.input, error: error)
+        }
+    }
+
+    //===
+
+    static
+    func finish(
+        with processId: UUID,
+        output: Output,
+        next: AfterFinishAction = .none
+        ) -> Action
+    {
+        return transition.Between<Running, Succeeded>.via { running, become, submit in
+
+            try Require("This is the most recent process result.").isTrue(
+
+                running.processId == processId
+            )
+
+            //---
+
+            become << Succeeded(input: running.input, output: output)
+
+            //---
+
+            switch next
+            {
+                case .remove:
+                    submit << deinitialize.From<Succeeded>.automatically()
+
+                case .reset:
+                    submit << reset
+
+                default:
+                    break
+            }
+        }
+    }
+
+    //===
+
+    static
+    func reset() -> Action
+    {
+        return transition.Into<Idle>.automatically(same: .no)
+    }
+}
+// sourcery:end
+{% endfor %}
