@@ -47,11 +47,13 @@ extension ServiceProviderProxy
     //===
 
     static
-    func setup(with service: Service) -> Action
+    func setup(
+        with serviceGetter: @autoclosure @escaping () throws -> Service
+        ) -> Action
     {
         return Real.initialize.Into<Ready>.via { become, _ in
 
-            become << Ready(with: service)
+            become << Ready(with: try serviceGetter())
         }
     }
 }
