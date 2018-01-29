@@ -9,6 +9,7 @@ import Foundation
 #if DEBUG
 
 @objc
+public
 protocol Injectable: NSObjectProtocol
 {
     func onAfterInjected()
