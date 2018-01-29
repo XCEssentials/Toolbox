@@ -11,38 +11,38 @@ Pod::Spec.new do |s|
 
   s.name                      = companyPrefix + projName
   s.summary                   = projSummary
-  s.version                   = '0.0.1'
+  s.version                   = '1.0.0'
   s.homepage                  = companyGitHubPage + '/' + projName
   
   s.source                    = { :git => companyGitHubAccount + '/' + projName + '.git', :tag => s.version }
   
-  s.osx.deployment_target     = '10.11'
-  s.ios.deployment_target     = '9.0'
   s.requires_arc              = true
   
   s.license                   = { :type => 'MIT', :file => 'LICENSE' }
   s.author                    = { 'Maxim Khatskevich' => 'maxim@khatskevi.ch' }
 
-  s.default_subspec = 'Core'
+  # === All platforms
 
-  s.subspec 'Core' do |ss|
+  s.source_files              = 'Sources/Common/**/*.swift'
+  s.resource_bundle           = { s.name + '_CommonTemplates' => 'Templates/Common/**/*.stencil' }
 
-    ss.osx.deployment_target  = '10.11'
-    ss.ios.deployment_target  = '9.0'
+  s.dependency                  'SnapKit', '~> 4.0.0'
 
-    ss.source_files           = 'Sources/Core/**/*.swift'
+  # === iOS
 
-  end
+  s.ios.deployment_target     = '10.0'
 
-  # s.subspec 'UIKit' do |ss|
+  s.ios.source_files          = 'Sources/iOS/**/*.swift'
+  s.ios.resource_bundle       = { s.name + '_iOSTemplates' => 'Templates/iOS/**/*.stencil' }
 
-  #   ss.ios.deployment_target  = '9.0'
+  s.framework                 = 'UIKit'
 
-  #   ss.framework              = 'UIKit'
-  #   ss.dependency               s.name + '/Core'
-  
-  #   ss.source_files           = 'Sources/UIKit/**/*.swift'
+  s.ios.dependency              'XCEUniFlow', '~> 4.9.0'
+  s.ios.dependency              'XCEOperationFlow', '~> 4.1.0'
+  s.ios.dependency              'XCEFunctionalState', '~> 3.1.0'
 
-  # end
+  # === macOS
+
+  # s.osx.deployment_target   = '10.11'
 
 end

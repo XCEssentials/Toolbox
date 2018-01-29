@@ -1,0 +1,48 @@
+// sourcery:file:App.swift
+import UIKit
+
+import XCEUniFlow
+
+//===
+
+@UIApplicationMain
+final
+class App: UIResponder, AppInitializer
+{
+    // MARK: - Model
+
+    let dispatcher = Dispatcher(defaultReporting: .short)
+
+    // MARK: - View
+
+    var window: UIWindow? = UIWindow()
+}
+
+// MARK: - UIApplicationDelegate support
+
+extension App: UIApplicationDelegate
+{
+    func application(
+        _ application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: AppLaunchOptions?
+        ) -> Bool
+    {
+        setup(with: application, launchOptions: launchOptions)
+
+        //---
+
+        window.map {
+
+            $0.backgroundColor = .black
+            {% for type in types.implementing.GUIInitializer %}
+            $0.rootViewController = {{ type.name }}.setup(with: dispatcher.proxy)
+            {% endfor %}
+            $0.makeKeyAndVisible()
+        }
+
+        //---
+
+        return true
+    }
+}
+// sourcery:end

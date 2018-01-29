@@ -1,7 +1,7 @@
 repoName = 'Toolbox'
 projName = 'Main'
 
-platform :ios, '9.0'
+platform :ios, '10.0'
 
 workspace repoName
 
@@ -9,20 +9,12 @@ use_frameworks!
 
 #===
 
-def sharedPods
+target 'Fwk' do
 
-	# 
+	project projName
+
+	#===
+
+	podspec
 
 end
-
-#===
-
-# target 'Fwk' do
-
-# 	project projName
-
-# 	#===
-
-# 	sharedPods
-
-# end

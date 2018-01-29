@@ -1,0 +1,6 @@
+framework module XCEFunctionalState {
+  umbrella header "XCEFunctionalState-umbrella.h"
+
+  export *
+  module * { export * }
+}
