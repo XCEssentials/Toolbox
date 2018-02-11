@@ -10,7 +10,6 @@
 		3B4F7668FA7EF16A50187AFC /* Pods_Fwk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B94A2425866CB41C7C671F /* Pods_Fwk.framework */; };
 		949B4DCB2030BE5600075451 /* NestedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949B4DCA2030BE5600075451 /* NestedType.swift */; };
 		94F884C3201FBEAD00B8E2C1 /* AppInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F884B6201FBEAD00B8E2C1 /* AppInitializer.swift */; };
-		94F884C4201FBEAD00B8E2C1 /* NoNotchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F884B7201FBEAD00B8E2C1 /* NoNotchViewController.swift */; };
 		94F884C5201FBEAD00B8E2C1 /* ContextualCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F884B8201FBEAD00B8E2C1 /* ContextualCommand.swift */; };
 		94F884C6201FBEAD00B8E2C1 /* AppComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F884B9201FBEAD00B8E2C1 /* AppComponent.swift */; };
 		94F884C7201FBEAD00B8E2C1 /* WithReferenceToItself.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F884BA201FBEAD00B8E2C1 /* WithReferenceToItself.swift */; };
@@ -43,7 +42,6 @@
 		66B94A2425866CB41C7C671F /* Pods_Fwk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fwk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		949B4DCA2030BE5600075451 /* NestedType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedType.swift; sourceTree = "<group>"; };
 		94F884B6201FBEAD00B8E2C1 /* AppInitializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppInitializer.swift; sourceTree = "<group>"; };
-		94F884B7201FBEAD00B8E2C1 /* NoNotchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoNotchViewController.swift; sourceTree = "<group>"; };
 		94F884B8201FBEAD00B8E2C1 /* ContextualCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextualCommand.swift; sourceTree = "<group>"; };
 		94F884B9201FBEAD00B8E2C1 /* AppComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppComponent.swift; sourceTree = "<group>"; };
 		94F884BA201FBEAD00B8E2C1 /* WithReferenceToItself.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WithReferenceToItself.swift; sourceTree = "<group>"; };
@@ -119,7 +117,6 @@
 			isa = PBXGroup;
 			children = (
 				94F884B6201FBEAD00B8E2C1 /* AppInitializer.swift */,
-				94F884B7201FBEAD00B8E2C1 /* NoNotchViewController.swift */,
 				94F884BB201FBEAD00B8E2C1 /* GUIInitializer.swift */,
 				94F884C2201FBEAD00B8E2C1 /* BaseView.swift */,
 			);
@@ -285,7 +282,6 @@
 				94F884C7201FBEAD00B8E2C1 /* WithReferenceToItself.swift in Sources */,
 				94F884CD201FBEAD00B8E2C1 /* GUIPage.swift in Sources */,
 				94F884CE201FBEAD00B8E2C1 /* BaseView.swift in Sources */,
-				94F884C4201FBEAD00B8E2C1 /* NoNotchViewController.swift in Sources */,
 				94F884C6201FBEAD00B8E2C1 /* AppComponent.swift in Sources */,
 				94F884CA201FBEAD00B8E2C1 /* ServiceProvider.swift in Sources */,
 				94F884C5201FBEAD00B8E2C1 /* ContextualCommand.swift in Sources */,
