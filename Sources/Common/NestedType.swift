@@ -25,12 +25,7 @@
  */
 
 public
-protocol WithReferenceToItself { }
-
-//---
-
-public
-extension WithReferenceToItself
+protocol NestedType
 {
-    typealias Itself = Self
+    associatedtype Parent
 }
