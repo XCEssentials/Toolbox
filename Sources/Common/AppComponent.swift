@@ -24,8 +24,12 @@
 
  */
 
+import XCEUniFlow
+
+//---
+
 public
-protocol AppComponent { } // might be model/feature
+protocol AppComponent: Feature { }
 
 //---
 
