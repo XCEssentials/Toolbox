@@ -62,10 +62,14 @@ extension {{ type.name }}
         minDelay: TimeInterval = minDelay
         ) -> Action
     {
-        return transition.Into<Running>.via(same: .ok) { globalModel, become, submit in
+        return transition.Into<Running>.via(same: .ok)
+        {
+            globalModel, currentState, become, submit in
+
+            //---
 
             if
-                let running = try? Running.from(globalModel)
+                let running = currentState as? Running
             {
                 try? running.flow.cancel()
 
@@ -94,7 +98,11 @@ extension {{ type.name }}
     static
     func fail(with processId: UUID, error: Error) -> Action
     {
-        return transition.Between<Running, Failed>.via { running, become, _ in
+        return transition.Between<Running, Failed>.via
+        { 
+            running, become, _ in
+
+            //---
 
             try Require("This is the most recent process result.").isTrue(
 
@@ -116,7 +124,11 @@ extension {{ type.name }}
         next: AfterFinishAction = .none
         ) -> Action
     {
-        return transition.Between<Running, Succeeded>.via { running, become, submit in
+        return transition.Between<Running, Succeeded>.via
+        {
+            running, become, submit in
+
+            //---
 
             try Require("This is the most recent process result.").isTrue(
 
