@@ -25,62 +25,252 @@
  */
 
 public
-struct ContextualCommand<Context, Output>
+protocol CommandContext: class
 {
-    public
-    let body: (Context) -> Output
+    //
+}
 
+//---
+
+//public
+//struct ContextualCommand<Context: CommandContext, Output>
+//{
+//    public
+//    let body: (Context) -> Output
+//
+//    fileprivate
+//    init(with body: @escaping (Context) -> Output)
+//    {
+//        self.body = body
+//    }
+//}
+
+//---
+
+public
+struct Commands<Context: CommandContext>
+{
     fileprivate
-    init(with body: @escaping (Context) -> Output)
-    {
-        self.body = body
-    }
-}
+    let context: Context
 
-// MARK: - CommandContext protocol
+//    public
+//    typealias CommandReturns<Output> = ContextualCommand<Context, Output>
+//
+//    public
+//    typealias Command = CommandReturns<Void>
 
-public
-protocol CommandContext: class { }
-
-// MARK: - CommandContext protocol - Command aliases
-
-public
-extension CommandContext
-{
-    typealias CommandReturns<Output> = ContextualCommand<Self, Output>
-    typealias Command = CommandReturns<Void>
-}
-
-// MARK: - CommandContext protocol - Command definition constructor
-
-public
-extension CommandContext
-{
-    static
+    @discardableResult
+    public
     func command<Output>(
-        _ handler: @escaping (Self) -> Output
-        ) -> CommandReturns<Output>
-    {
-        return CommandReturns(with: handler)
-    }
-}
-
-// MARK: - CommandContext protocol - Usage helpers
-
-public
-extension CommandContext
-{
-    func execute(
-        _ commandGetter: (Self.Type) -> Command
-        )
-    {
-        commandGetter(type(of: self)).body(self)
-    }
-
-    func map<Output>(
-        _ commandGetter: (Self.Type) -> CommandReturns<Output>
+        _ handler: (Context) -> Output
         ) -> Output
     {
-        return commandGetter(type(of: self)).body(self)
+        return handler(context)
+    }
+
+//    public
+//    func commandReturns<Output>(
+//        _ handler: (Context) -> Output
+//        ) -> Output
+//    {
+//        return handler(context)
+//    }
+//
+//    public
+//    func command(
+//        _ handler: (Context) -> Void
+//        )
+//    {
+//        handler(context)
+//    }
+}
+
+//---
+
+public
+extension CommandContext
+{
+    typealias Cmd = Commands<Self>
+
+    var execute: Cmd
+    {
+        return Cmd(context: self)
+    }
+
+//    func execute(
+//        _ commandGetter: (Self.Type) -> Command
+//        )
+//    {
+//        commandGetter(type(of: self)).body(self)
+//    }
+//    func map<Output>(
+//        _ commandGetter: (Self.Type) -> CommandReturns<Output>
+//        ) -> Output
+//    {
+//        return commandGetter(type(of: self)).body(self)
+//    }
+}
+
+//---
+
+final
+class Tst: CommandContext
+{
+    let num: Int = 4
+
+    func useHere()
+    {
+     // cmd.setup()
+     // execute(Cmd.setup())
+     // execute << cmd.setup()
+     // execute << setup()
+     // execute{ $0.setup() }
+     // execute(.setup)
+     // execute(.setupWith(4))
+     // execute << .setup
+     // execute << .setupWith(4)
+     // execute << .setup.with(4)
+     // execute(Itself.setup.with(4))
+
+        execute.setup()
+
+        //
+    }
+
+    static
+    let aaa =
+    {
+        print("dsdsd")
     }
 }
+
+//---
+
+fileprivate
+extension Commands where Context: Tst
+{
+    func setup()
+    {
+        command
+        {
+            _ = $0.num
+        }
+    }
+
+    func doAndReturn() -> Bool
+    {
+        return command
+        {
+            _ = $0.num
+
+            return false
+        }
+    }
+}
+
+
+
+//=================
+
+//public
+//struct ContextualCommand<Context: AnyObject, Output>
+//{
+//    public
+//    let body: (Context) -> Output
+//
+//    fileprivate
+//    init(with body: @escaping (Context) -> Output)
+//    {
+//        self.body = body
+//    }
+//}
+
+//// MARK: - CommandContext protocol
+//
+//public
+//protocol CommandContext: class { }
+//
+//// MARK: - CommandContext protocol - Command aliases
+//
+//public
+//extension CommandContext
+//{
+//    typealias CommandReturns<Output> = ContextualCommand<Self, Output>
+//    typealias Command = CommandReturns<Void>
+//}
+//
+//// MARK: - CommandContext protocol - Command definition constructor
+//
+//public
+//extension CommandContext
+//{
+//    static
+//    func command<Output>(
+//        _ handler: @escaping (Self) -> Output
+//        ) -> CommandReturns<Output>
+//    {
+//        return CommandReturns(with: handler)
+//    }
+//}
+//
+//// MARK: - CommandContext protocol - Usage helpers
+//
+//public
+//enum CmdExt<Host: AnyObject>
+//{
+//    //
+//}
+//
+//public
+//extension CommandContext
+//{
+//    typealias Cmd = CmdExt<Self>
+//
+//    var exec: Self.Type
+//    {
+//        return type(of: self)
+//    }
+//
+//    func execute(
+//        _ commandGetter: (Self.Type) -> Command
+//        )
+//    {
+//        commandGetter(type(of: self)).body(self)
+//    }
+//
+//    func map<Output>(
+//        _ commandGetter: (Self.Type) -> CommandReturns<Output>
+//        ) -> Output
+//    {
+//        return commandGetter(type(of: self)).body(self)
+//    }
+//}
+//
+//final
+//class Tst: CommandContext
+//{
+//    static
+//    let setup = command
+//    {
+//        _ = $0
+//    }
+//
+//    static
+//    func setupAgain(with num: Int) -> Command
+//    {
+//        return command
+//        {
+//            _ = $0
+//        }
+//    }
+//
+//    func tst()
+//    {
+////        Cmd
+//    }
+//}
+//
+//extension CmdExt where Host == Tst
+//{
+//
+//}
