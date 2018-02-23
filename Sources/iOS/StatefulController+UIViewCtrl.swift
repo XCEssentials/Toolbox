@@ -28,8 +28,6 @@ import UIKit
 
 import XCEFunctionalState
 
-//---
-
 // MARK: - Apply
 
 public
@@ -104,5 +102,64 @@ extension StatefulController where Self: UIViewController
                 state: stateGetter,
                 completion: completion
             )
+    }
+}
+
+// MARK: - Aliases to avoid name conflicts
+
+public
+struct FSTConnector<Ctr: StatefulController>
+{
+    fileprivate
+    let ctr: Ctr
+}
+
+public
+extension StatefulController where Self: UIViewController
+{
+    var fst: FSTConnector<Self>
+    {
+        return FSTConnector(ctr: self)
+    }
+}
+
+public
+extension FSTConnector where Ctr: UIViewController
+{
+    func apply(
+        via forceTransition: Transition<Ctr.View>? = nil,
+        state: State<Ctr.View>,
+        completion: UserProvidedCompletion = nil
+        )
+    {
+        ctr.apply(
+            via: forceTransition,
+            state: state,
+            completion: completion
+        )
+    }
+
+    func apply(
+        via forceTransition: Transition<Ctr.View>? = nil,
+        state stateGetter: (Ctr.View.Type) -> State<Ctr.View>
+        )
+    {
+        ctr.apply(
+            via: forceTransition,
+            state: stateGetter
+        )
+    }
+
+    func apply(
+        via forceTransition: Transition<Ctr.View>? = nil,
+        state stateGetter: (Ctr.View.Type) -> State<Ctr.View>,
+        completion: UserProvidedCompletion
+        )
+    {
+        ctr.apply(
+            via: forceTransition,
+            state: stateGetter,
+            completion: completion
+        )
     }
 }
