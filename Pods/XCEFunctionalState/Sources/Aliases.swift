@@ -141,7 +141,4 @@ public
 typealias FSTSomeState = SomeState
 
 public
-typealias FSTDispatcherProxy<Subject: FSTStateful> = DispatcherProxy<Subject>
-
-public
 typealias FSTDispatcher = Dispatcher
