@@ -105,6 +105,26 @@ extension StatefulController where Self: UIViewController
     }
 }
 
+// MARK: - Custom operator overloads (redeclaration from FST)
+
+public
+func << <T: Stateful>(
+    apply: (Transition<T>?, State<T>, UserProvidedCompletion) -> Void,
+    input: (Transition<T>, State<T>)
+    )
+{
+    apply(input.0, input.1, nil)
+}
+
+public
+func << <T: Stateful>(
+    apply: (Transition<T>?, State<T>, UserProvidedCompletion) -> Void,
+    state: State<T>
+    )
+{
+    apply(nil, state, nil)
+}
+
 // MARK: - Aliases to avoid name conflicts
 
 public
