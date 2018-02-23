@@ -24,45 +24,22 @@
 
  */
 
-import UIKit
-
-import XCEFunctionalState
+public
+func << <T: Stateful>(
+    apply: (Transition<T>?, State<T>, UserProvidedCompletion) -> Void,
+    input: (Transition<T>, State<T>)
+    )
+{
+    apply(input.0, input.1, nil)
+}
 
 //---
 
 public
-class BaseView: UIView
+func << <T: Stateful>(
+    apply: (Transition<T>?, State<T>, UserProvidedCompletion) -> Void,
+    state: State<T>
+    )
 {
-    // MARK: - Stateful support
-
-    public
-    let dispatcher = Dispatcher() // to conform to FSTStateful
-
-    // MARK: - injectable support
-
-    public
-    func onAfterInjected() { }
+    apply(nil, state, nil)
 }
-
-//---
-
-#if DEBUG
-
-extension BaseView: Injectable
-{
-    @objc
-    public
-    func injected()
-    {
-        for subview in subviews
-        {
-            subview.removeFromSuperview()
-        }
-
-        //---
-
-        onAfterInjected()
-    }
-}
-
-#endif

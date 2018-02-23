@@ -39,7 +39,7 @@ Pod::Spec.new do |s|
 
   s.ios.dependency              'XCEUniFlow', '~> 4.10.0'
   s.ios.dependency              'XCEOperationFlow', '~> 4.1.0'
-  s.ios.dependency              'XCEFunctionalState', '~> 3.1.0'
+  s.ios.dependency              'XCEFunctionalState', '~> 3.2.0'
 
   # === macOS
 
