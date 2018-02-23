@@ -24,45 +24,12 @@
 
  */
 
-import UIKit
-
 import XCEFunctionalState
 
 //---
 
 public
-class BaseView: UIView
+protocol StatefulController: class
 {
-    // MARK: - Stateful support
-
-    public
-    let dispatcher = Dispatcher() // to conform to FSTStateful
-
-    // MARK: - injectable support
-
-    public
-    func onAfterInjected() { }
+    associatedtype View: Stateful
 }
-
-//---
-
-#if DEBUG
-
-extension BaseView: Injectable
-{
-    @objc
-    public
-    func injected()
-    {
-        for subview in subviews
-        {
-            subview.removeFromSuperview()
-        }
-
-        //---
-
-        onAfterInjected()
-    }
-}
-
-#endif
