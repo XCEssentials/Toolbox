@@ -1,8 +1,9 @@
 {% for type in types.implementing.ConcurrentProcess %}
 // sourcery:file:{{ type.name|replace:".","_" }}_Base.swift
+import PromiseKit
+
 import XCEUniFlow
 import XCERequirement
-import XCEOperationFlow
 
 // MARK: - States
 
@@ -17,7 +18,7 @@ extension {{ type.name }}
         let startedAt = Date()
         let processId: UUID
         let input: Input
-        let flow: OperationFlow.ActiveProxy
+        let flow: CancelToken
     }
 
     struct Failed: State { typealias Parent = {{ type.name }}
@@ -71,7 +72,7 @@ extension {{ type.name }}
             if
                 let running = currentState as? Running
             {
-                try? running.flow.cancel()
+                running.flow.cancel()
 
                 //---
 
@@ -88,7 +89,7 @@ extension {{ type.name }}
             become << Running(
                 processId: processId,
                 input: input,
-                flow: run(input, processId, submit).proxy
+                flow: run(input, processId, submit)
             )
         }
     }
