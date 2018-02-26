@@ -1,6 +1,0 @@
-framework module XCEOperationFlow {
-  umbrella header "XCEOperationFlow-umbrella.h"
-
-  export *
-  module * { export * }
-}

@@ -1,23 +1,31 @@
 PODS:
+  - PromiseKit (6.1.2):
+    - PromiseKit/CorePromise (= 6.1.2)
+    - PromiseKit/Foundation (= 6.1.2)
+    - PromiseKit/UIKit (= 6.1.2)
+  - PromiseKit/CorePromise (6.1.2)
+  - PromiseKit/Foundation (6.1.2):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (6.1.2):
+    - PromiseKit/CorePromise
   - SnapKit (4.0.0)
   - XCEFunctionalState (3.2.0)
-  - XCEOperationFlow (4.1.3)
   - XCERequirement (1.6.0)
-  - XCEUniFlow (4.10.0):
+  - XCEUniFlow (4.10.2):
     - XCERequirement (~> 1.6)
 
 DEPENDENCIES:
+  - PromiseKit (~> 6.1.0)
   - SnapKit (~> 4.0.0)
   - XCEFunctionalState (~> 3.2.0)
-  - XCEOperationFlow (~> 4.1.0)
   - XCEUniFlow (~> 4.10.0)
 
 SPEC CHECKSUMS:
+  PromiseKit: 4a3255c16f236bd8a6a6b070568cd27259c97381
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   XCEFunctionalState: e58302bcf22955ffac10096354c6d5f449a4d818
-  XCEOperationFlow: 81bd8c017d2cea62624327ee1dd01aaf774cd8cb
   XCERequirement: 4dbe5a3e19b4784dc3c6943ec9b929e7f7dd7ff5
-  XCEUniFlow: af2ff390548baaf617f72fabcee2b1871e4b5442
+  XCEUniFlow: a63671597d9da559c9341a5a4ea17e58e4a0edb1
 
 PODFILE CHECKSUM: 47c7d7ca192d9ae5e59109a8e466065712ff6f9d
 
