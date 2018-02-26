@@ -27,7 +27,46 @@
 import Foundation
 
 import XCEUniFlow
-import XCEOperationFlow
+
+//---
+
+public
+class CancelToken
+{
+    private
+    let lock = NSLock()
+
+    //---
+
+    public private(set)
+    var isCancelled = false
+
+    //---
+
+    /**
+     Returns 'true' if cancellation happened jsut now,
+     i.e. token was in 'pending' state. Returns 'true' only once,
+     subsequent calls of 'cancel()' will always return 'false'.
+     */
+    @discardableResult
+    public
+    func cancel() -> Bool
+    {
+        lock.lock(); defer{ lock.unlock() }
+
+        //---
+
+        let wasCancelled = isCancelled
+
+        //---
+
+        isCancelled = true
+
+        //---
+
+        return !wasCancelled
+    }
+}
 
 //---
 
@@ -40,7 +79,7 @@ protocol ConcurrentProcess: Feature, NoBindings
     //---
 
     typealias Implementation =
-        (Input, UUID, @escaping SubmitAction) -> OperationFlow
+        (Input, UUID, @escaping SubmitAction) -> CancelToken
 
     //---
 
