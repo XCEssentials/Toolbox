@@ -43,6 +43,11 @@ class CancelToken
 
     //---
 
+    public
+    init() { }
+
+    //---
+
     /**
      Returns 'true' if cancellation happened jsut now,
      i.e. token was in 'pending' state. Returns 'true' only once,
