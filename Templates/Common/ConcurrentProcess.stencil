@@ -1,7 +1,6 @@
 {% for type in types.implementing.ConcurrentProcess %}
 // sourcery:file:{{ type.name|replace:".","_" }}_Base.swift
-import PromiseKit
-
+import XCEToolbox
 import XCEUniFlow
 import XCERequirement
 
