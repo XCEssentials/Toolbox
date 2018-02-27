@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
 
   s.name                      = companyPrefix + projName
   s.summary                   = projSummary
-  s.version                   = '1.5.1'
+  s.version                   = '1.5.2'
   s.homepage                  = companyGitHubPage + '/' + projName
   
   s.source                    = { :git => companyGitHubAccount + '/' + projName + '.git', :tag => s.version }
@@ -27,7 +27,6 @@ Pod::Spec.new do |s|
   s.resource_bundle           = { s.name + '_CommonTemplates' => 'Templates/Common/**/*.stencil' }
 
   s.dependency                  'SnapKit', '~> 4.0.0'
-  s.dependency                  'PromiseKit', '~> 6.1.0'
 
   # === iOS
 

@@ -1,13 +1,4 @@
 PODS:
-  - PromiseKit (6.1.2):
-    - PromiseKit/CorePromise (= 6.1.2)
-    - PromiseKit/Foundation (= 6.1.2)
-    - PromiseKit/UIKit (= 6.1.2)
-  - PromiseKit/CorePromise (6.1.2)
-  - PromiseKit/Foundation (6.1.2):
-    - PromiseKit/CorePromise
-  - PromiseKit/UIKit (6.1.2):
-    - PromiseKit/CorePromise
   - SnapKit (4.0.0)
   - XCEFunctionalState (3.2.0)
   - XCERequirement (1.6.0)
@@ -15,13 +6,11 @@ PODS:
     - XCERequirement (~> 1.6)
 
 DEPENDENCIES:
-  - PromiseKit (~> 6.1.0)
   - SnapKit (~> 4.0.0)
   - XCEFunctionalState (~> 3.2.0)
   - XCEUniFlow (~> 4.10.0)
 
 SPEC CHECKSUMS:
-  PromiseKit: 4a3255c16f236bd8a6a6b070568cd27259c97381
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   XCEFunctionalState: e58302bcf22955ffac10096354c6d5f449a4d818
   XCERequirement: 4dbe5a3e19b4784dc3c6943ec9b929e7f7dd7ff5
