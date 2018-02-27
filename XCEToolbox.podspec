@@ -27,7 +27,6 @@ Pod::Spec.new do |s|
   s.resource_bundle           = { s.name + '_CommonTemplates' => 'Templates/Common/**/*.stencil' }
 
   s.dependency                  'SnapKit', '~> 4.0.0'
-  s.dependency                  'PromiseKit', '~> 6.1.0'
 
   # === iOS
 
