@@ -119,11 +119,11 @@ extension SearchView
 
         view.alpha = 0.0
 
-        //===
+        //---
 
         mutations() // this is closure from the state
 
-        //===
+        //---
 
         UIView.animate(
         	withDuration: 1.0,

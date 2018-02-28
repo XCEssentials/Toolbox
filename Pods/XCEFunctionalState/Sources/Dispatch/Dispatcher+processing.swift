@@ -33,30 +33,26 @@ extension Dispatcher
     {
         guard
             let ready = internalState as? Ready,
-            let (newState, userCompletion) = queue.dequeue()
+            let newState = queue.dequeue()
         else
         {
             return
         }
 
-        //===
+        //---
 
         internalState = InTransition(previous: ready.current, target: newState.identifier)
 
-        let internalCompletion: InternalCompletion = { finished in
+        let completion: Completion = { _ in
             
             self.internalState = Ready(current: newState.identifier)
-            
-            //===
-            
-            userCompletion?(finished)
-            
-            //===
+
+            //---
             
             self.processNext()
         }
         
-        //===
+        //---
 
         if
             ready.current == newState.identifier
@@ -66,18 +62,18 @@ extension Dispatcher
             if
                 let onUpdate = newState.onUpdate
             {
-                onUpdate(internalCompletion)
+                onUpdate(completion)
             }
             else
             {
-                internalCompletion(true)
+                completion(true)
             }
         }
         else
         {
             // set
             
-            newState.onSet(internalCompletion)
+            newState.onSet(completion)
         }
     }
 }

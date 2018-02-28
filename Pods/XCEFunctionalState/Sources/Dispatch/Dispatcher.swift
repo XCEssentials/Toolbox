@@ -24,7 +24,7 @@
  
  */
 
-//===
+//---
 
 protocol DispatcherInternalState { }
 
@@ -40,7 +40,7 @@ class Dispatcher
      
      Every time we add a transition into the queue, we call `processNext()` to start processing scheduled transitions right away.
      */
-    var queue = Queue<(state: SomeState, completion: UserProvidedCompletion)>()
+    var queue = Queue<SomeState>()
     
     /**
      Holds internal state.
