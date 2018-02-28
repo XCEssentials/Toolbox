@@ -27,16 +27,15 @@
 extension State
 {
     func toSomeState(
-        with subject: Subject,
-        forceTransition force: Transition<Subject>?
+        with subject: Subject
         ) -> SomeState
     {
-        let someOnSet: SomeMutationWithCompletion = { finished in
+        let someOnSet: SomeMutationWithCompletion = { completion in
             
-            (force ?? self.onSet.transition)(
+            self.onSet.transition(
                 subject,
-                { self.onSet.mutation(subject) },
-                finished
+                self.onSet.mutation,
+                completion
             )
         }
         
@@ -47,12 +46,12 @@ extension State
         if
             let onUpdate = self.onUpdate
         {
-            someOnUpdate = { finished in
+            someOnUpdate = { completion in
                 
-                (force ?? onUpdate.transition)(
+                onUpdate.transition(
                     subject,
-                    { onUpdate.mutation(subject) },
-                    finished
+                    onUpdate.mutation,
+                    completion
                 )
             }
         }

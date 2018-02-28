@@ -24,22 +24,35 @@
 
  */
 
+/**
+ Closure/function that implements transition into a new state.
+
+ - Parameters:
+
+ - stateOwner: Object-owner of the state.
+
+ - mutations: Mutations/statements that must be performed exactly once in order to complete transition into the new state; must be called on MAIN trhead/queue.
+
+ - completion: Completion closure; must be called on MAIN trhead/queue after `mutations` closure has been executed.
+ */
 public
-func << <T: Stateful>(
-    apply: (Transition<T>?, State<T>, UserProvidedCompletion) -> Void,
-    input: (Transition<T>, State<T>)
-    )
-{
-    apply(input.0, input.1, nil)
-}
+typealias Transition<Subject: AnyObject> = (
+    Subject,
+    @escaping BasicClosure,
+    @escaping Completion
+    ) -> Void
 
 //---
 
 public
-func << <T: Stateful>(
-    apply: (Transition<T>?, State<T>, UserProvidedCompletion) -> Void,
-    state: State<T>
-    )
+enum DefaultTransitions // scope
 {
-    apply(nil, state, nil)
+    /**
+     Helper constructor of transition that applies mutations instantly and calls completion right away.
+     */
+    static
+    func instant<T>() -> Transition<T>
+    {
+        return { $1(); $2(true) }
+    }
 }
