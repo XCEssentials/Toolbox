@@ -38,7 +38,7 @@ Pod::Spec.new do |s|
   s.framework                 = 'UIKit'
 
   s.ios.dependency              'XCEUniFlow', '~> 4.10.0'
-  s.ios.dependency              'XCEFunctionalState', '~> 3.2.0'
+  s.ios.dependency              'XCEFunctionalState', '~> 4.0.0'
 
   # === macOS
 

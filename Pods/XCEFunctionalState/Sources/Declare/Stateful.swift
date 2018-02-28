@@ -31,116 +31,156 @@ public
 protocol Stateful: class
 {
     var dispatcher: Dispatcher { get }
-
-    /**
-     Transition that will be used as `onSetTransition` in each state related to this class, if no other transition is specified explicitly.
-     */
-    static
-    var defaultOnSetTransition: Transition<Self> { get }
-
-    /**
-     Transition that will be used as `onUpdateTransition` in each state related to this class, if no other transition is specified explicitly.
-     */
-    static
-    var defaultOnUpdateTransition: Transition<Self> { get }
 }
 
-// MARK: - Default implementations
-
-public
-extension Stateful
-{
-    static
-    var defaultOnSetTransition: Transition<Self>
-    {
-        return FST.instantTransition()
-    }
-
-    static
-    var defaultOnUpdateTransition: Transition<Self>
-    {
-        return FST.instantTransition()
-    }
-}
-
-// MARK: - Apply
+// MARK: - State constructors
 
 public
 extension Stateful
 {
     /**
-     Schedules transition into a given state (target state).
+     One of the designated functions to define a state.
 
      - Parameters:
 
-     - forceTransition: Transition that must be used to override transitions defined in target state (both `onSetTransition` and `onUpdateTransition`). If it's `nil` then transitions from `targetState` will be used instead.
+     - stateId: Internal state identifier that helps to distinguish one state from another. It is supposed to be unique per stateful type. It's highly recommended to always let the function use default value, which is defined by the name of the enclosing function. This guarantees its uniqueness within `Subject` type and it's very convenient for debugging.
 
-     - state: State that needs to be applied to `self.subject` object (target state).
+     - transition: Transition that will be used to apply `setBody` mutations.
 
-     - completion: Higher level completion that will be called after transition is complete and current state is set to target state.
+     - onSetMutations: Closure that must be called to apply this state (to make it current when this state is NOT current yet, or current state is undefined yet).
      */
-    func apply(
-        via forceTransition: Transition<Self>? = nil,
-        state: State<Self>,
-        completion: UserProvidedCompletion = nil
+    func setStateOnly(
+        stateId: StateIdentifier = #function,
+        via transition: Transition<Self>? = nil,
+        _ onSetMutations: @escaping BasicClosure
         )
     {
-        dispatcher.queue.enqueue((
-            state.toSomeState(with: self, forceTransition: forceTransition),
-            completion
-        ))
+        let state = State<Self>(
+            identifier: stateId,
+            onSet: (onSetMutations, transition ?? DefaultTransitions.instant()),
+            onUpdate: nil
+        )
+
+        dispatcher.queue.enqueue(state.toSomeState(with: self))
 
         dispatcher.processNext()
     }
 
-    /**
-     Schedules transition into a given state (target state).
-
-     - Parameters:
-
-     - forceTransition: Transition that must be used to override transitions defined in target state (both `onSetTransition` and `onUpdateTransition`). If it's `nil` then transitions from `targetState` will be used instead.
-
-     - stateGetter: Closure that returns state (target state) which needs to be applied to `self.subject` object
-     */
-    func apply(
-        via forceTransition: Transition<Self>? = nil,
-        state stateGetter: (Self.Type) -> State<Self>
+    func setOrUpdateState(
+        stateId: StateIdentifier = #function,
+        via sameTransition: Transition<Self>? = nil,
+        _ commonMutations: @escaping BasicClosure
         )
     {
-        let state = stateGetter(Self.self)
+        let state = State<Self>(
+            identifier: stateId,
+            onSet: (commonMutations, sameTransition ?? DefaultTransitions.instant()),
+            onUpdate: (commonMutations, sameTransition ?? DefaultTransitions.instant())
+        )
 
-        dispatcher.queue.enqueue((
-            state.toSomeState(with: self, forceTransition: forceTransition),
-            nil
-        ))
+        dispatcher.queue.enqueue(state.toSomeState(with: self))
 
         dispatcher.processNext()
     }
 
+    func setOrUpdateState(
+        stateId: StateIdentifier = #function,
+        setVia onSetTransition: Transition<Self>? = nil,
+        updateVia onUpdateTransition: Transition<Self>? = nil,
+        _ commonMutations: @escaping BasicClosure
+        )
+    {
+        let state = State<Self>(
+            identifier: stateId,
+            onSet: (commonMutations, onSetTransition ?? DefaultTransitions.instant()),
+            onUpdate: (commonMutations, onUpdateTransition ?? DefaultTransitions.instant())
+        )
+
+        dispatcher.queue.enqueue(state.toSomeState(with: self))
+
+        dispatcher.processNext()
+    }
+}
+
+//---
+
+public
+extension Stateful
+{
     /**
-     Schedules transition into a given state (target state).
+     One of the designated functions to define a state.
 
      - Parameters:
 
-     - forceTransition: Transition that must be used to override transitions defined in target state (both `onSetTransition` and `onUpdateTransition`). If it's `nil` then transitions from `targetState` will be used instead.
+     - stateId: Internal state identifier that helps to distinguish one state from another. It is supposed to be unique per stateful type. It's highly recommended to always let the function use default value, which is defined by the name of the enclosing function. This guarantees its uniqueness within `Subject` type and it's very convenient for debugging.
 
-     - stateGetter: Closure that returns state (target state) which needs to be applied to `self.subject` object
+     - transition: Transition that will be used to apply `onSet` mutations.
 
-     - completion: Higher level completion that will be called after transition is complete and current state is set to target state.
+     - onSet: Closure that must be called to apply this state (when this state is NOT current yet, or current state is undefined yet, to make it current).
+
+     - Returns: An intermediate data structure that is used as syntax suger to define a state with both 'onSet' and 'onUpdate' mutations via chainable API. It will keep inside a state value made of all provided parameters (with empty 'onUpdate').
      */
-    func apply(
-        via forceTransition: Transition<Self>? = nil,
-        state stateGetter: (Self.Type) -> State<Self>,
-        completion: UserProvidedCompletion
+    func setState(
+        stateId: StateIdentifier = #function,
+        via transition: Transition<Self>? = nil,
+        _ onSetMutations: @escaping BasicClosure
+        ) -> PendingState<Self>
+    {
+        return PendingState(
+            host: self,
+            stateId: stateId,
+            onSetTransition: transition ?? DefaultTransitions.instant(),
+            onSetMutations: onSetMutations
+        )
+    }
+}
+
+//---
+
+/**
+ An intermediate data structure that is used as syntax suger to define a state with both 'onSet' and 'onUpdate' mutations via chainable API.
+ */
+public
+struct PendingState<Subject: Stateful>
+{
+    fileprivate
+    let host: Subject
+
+    fileprivate
+    let stateId: StateIdentifier
+
+    fileprivate
+    let onSetTransition: Transition<Subject>
+
+    fileprivate
+    let onSetMutations: BasicClosure
+}
+
+public
+extension PendingState
+{
+    /**
+     One of the designated functions to define a state.
+
+     - Parameters:
+
+     - onUpdateTransition: Transition that will be used to apply `onUpdate` mutations.
+
+     - onUpdateMutations: Closure that must be called to apply this state when this state IS already current. This might be useful to update some parameters that the state captures from the outer scope when gets called/created, while entire state stays the same.
+     */
+    func updateState(
+        via onUpdateTransition: Transition<Subject>? = nil,
+        _ onUpdateMutations: @escaping BasicClosure
         )
     {
-        let state = stateGetter(Self.self)
+        let state = State<Subject>(
+            identifier: stateId,
+            onSet: (onSetMutations, onSetTransition),
+            onUpdate: (onUpdateMutations, onUpdateTransition ?? DefaultTransitions.instant())
+        )
 
-        dispatcher.queue.enqueue((
-            state.toSomeState(with: self, forceTransition: forceTransition),
-            completion
-        ))
+        host.dispatcher.queue.enqueue(state.toSomeState(with: host))
 
-        dispatcher.processNext()
+        host.dispatcher.processNext()
     }
 }

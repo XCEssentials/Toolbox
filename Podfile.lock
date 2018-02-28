@@ -1,18 +1,18 @@
 PODS:
   - SnapKit (4.0.0)
-  - XCEFunctionalState (3.2.0)
+  - XCEFunctionalState (4.0.0)
   - XCERequirement (1.6.0)
   - XCEUniFlow (4.10.2):
     - XCERequirement (~> 1.6)
 
 DEPENDENCIES:
   - SnapKit (~> 4.0.0)
-  - XCEFunctionalState (~> 3.2.0)
+  - XCEFunctionalState (~> 4.0.0)
   - XCEUniFlow (~> 4.10.0)
 
 SPEC CHECKSUMS:
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
-  XCEFunctionalState: e58302bcf22955ffac10096354c6d5f449a4d818
+  XCEFunctionalState: 36614ec1695a12c8f1390daaef3994c8b32260c6
   XCERequirement: 4dbe5a3e19b4784dc3c6943ec9b929e7f7dd7ff5
   XCEUniFlow: a63671597d9da559c9341a5a4ea17e58e4a0edb1
 
