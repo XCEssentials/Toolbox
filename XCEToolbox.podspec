@@ -35,7 +35,7 @@ Pod::Spec.new do |s|
   s.ios.source_files          = 'Sources/iOS/**/*.swift'
   s.ios.resource_bundle       = { s.name + '_iOSTemplates' => 'Templates/iOS/**/*.stencil' }
 
-  s.framework                 = 'UIKit'
+  s.ios.framework             = 'UIKit'
 
   s.ios.dependency              'XCEUniFlow', '~> 4.10.0'
   s.ios.dependency              'XCEFunctionalState', '~> 4.0.0'
