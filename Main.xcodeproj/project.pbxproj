@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		3B4F7668FA7EF16A50187AFC /* Pods_Fwk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B94A2425866CB41C7C671F /* Pods_Fwk.framework */; };
 		949B4DCB2030BE5600075451 /* NestedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949B4DCA2030BE5600075451 /* NestedType.swift */; };
+		94A20A63204D8A0B002253EF /* CustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A20A62204D8A0B002253EF /* CustomViewController.swift */; };
+		94A20A65204D8A30002253EF /* CustomViewController+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A20A64204D8A30002253EF /* CustomViewController+UIKit.swift */; };
 		94F884C3201FBEAD00B8E2C1 /* AppInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F884B6201FBEAD00B8E2C1 /* AppInitializer.swift */; };
 		94F884C6201FBEAD00B8E2C1 /* AppComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F884B9201FBEAD00B8E2C1 /* AppComponent.swift */; };
 		94F884C7201FBEAD00B8E2C1 /* WithReferenceToItself.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F884BA201FBEAD00B8E2C1 /* WithReferenceToItself.swift */; };
@@ -40,6 +42,8 @@
 		38EEEBFE4C97DCD9DB9E36CD /* XCEToolbox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XCEToolbox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		66B94A2425866CB41C7C671F /* Pods_Fwk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fwk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		949B4DCA2030BE5600075451 /* NestedType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedType.swift; sourceTree = "<group>"; };
+		94A20A62204D8A0B002253EF /* CustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewController.swift; sourceTree = "<group>"; };
+		94A20A64204D8A30002253EF /* CustomViewController+UIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomViewController+UIKit.swift"; sourceTree = "<group>"; };
 		94F884B6201FBEAD00B8E2C1 /* AppInitializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppInitializer.swift; sourceTree = "<group>"; };
 		94F884B9201FBEAD00B8E2C1 /* AppComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppComponent.swift; sourceTree = "<group>"; };
 		94F884BA201FBEAD00B8E2C1 /* WithReferenceToItself.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WithReferenceToItself.swift; sourceTree = "<group>"; };
@@ -106,6 +110,7 @@
 				949B4DCA2030BE5600075451 /* NestedType.swift */,
 				94F884CF201FBF5D00B8E2C1 /* TemplatesSupport */,
 				94F884BA201FBEAD00B8E2C1 /* WithReferenceToItself.swift */,
+				94A20A62204D8A0B002253EF /* CustomViewController.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -116,6 +121,7 @@
 				94F884B6201FBEAD00B8E2C1 /* AppInitializer.swift */,
 				94F884C2201FBEAD00B8E2C1 /* BaseView.swift */,
 				94F884BB201FBEAD00B8E2C1 /* GUIInitializer.swift */,
+				94A20A64204D8A30002253EF /* CustomViewController+UIKit.swift */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -277,7 +283,9 @@
 			files = (
 				94F884C6201FBEAD00B8E2C1 /* AppComponent.swift in Sources */,
 				94F884C3201FBEAD00B8E2C1 /* AppInitializer.swift in Sources */,
+				94A20A65204D8A30002253EF /* CustomViewController+UIKit.swift in Sources */,
 				94F884CB201FBEAD00B8E2C1 /* AutoEquatable.swift in Sources */,
+				94A20A63204D8A0B002253EF /* CustomViewController.swift in Sources */,
 				94F884CE201FBEAD00B8E2C1 /* BaseView.swift in Sources */,
 				94F884CC201FBEAD00B8E2C1 /* ConcurrentProcess.swift in Sources */,
 				94F884C8201FBEAD00B8E2C1 /* GUIInitializer.swift in Sources */,
