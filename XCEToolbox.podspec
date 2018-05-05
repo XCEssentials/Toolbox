@@ -13,11 +13,11 @@ Pod::Spec.new do |s|
   s.summary                   = projSummary
   s.version                   = '1.6.1'
   s.homepage                  = companyGitHubPage + '/' + projName
-  
+
   s.source                    = { :git => companyGitHubAccount + '/' + projName + '.git', :tag => s.version }
-  
+
   s.requires_arc              = true
-  
+
   s.license                   = { :type => 'MIT', :file => 'LICENSE' }
   s.author                    = { 'Maxim Khatskevich' => 'maxim@khatskevi.ch' }
 
@@ -25,8 +25,6 @@ Pod::Spec.new do |s|
 
   s.source_files              = 'Sources/Common/**/*.swift'
   s.resource_bundle           = { s.name + '_CommonTemplates' => 'Templates/Common/**/*.stencil' }
-
-  s.dependency                  'SnapKit', '~> 4.0.0'
 
   # === iOS
 
