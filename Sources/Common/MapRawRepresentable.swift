@@ -24,35 +24,24 @@
 
  */
 
-/**
- Closure/function that implements transition into a new state.
-
- - Parameters:
-
- - stateOwner: Object-owner of the state.
-
- - mutations: Mutations/statements that must be performed exactly once in order to complete transition into the new state; must be called on MAIN trhead/queue.
-
- - completion: Completion closure; must be called on MAIN trhead/queue after `mutations` closure has been executed.
- */
 public
-typealias Transition<Subject: AnyObject> = (
-    Subject,
-    @escaping BasicClosure,
-    @escaping Completion
-    ) -> Void
-
-//---
-
-public
-enum DefaultTransitions // scope
+extension RawRepresentable
 {
-    /**
-     Helper constructor of transition that applies mutations instantly and calls completion right away.
-     */
-    static
-    func instant<T: AnyObject>() -> Transition<T>
+    func map<U>(_ transform: (RawValue) throws -> U ) rethrows -> U
     {
-        return { $1(); $2(true) }
+        return try transform(rawValue)
+    }
+    
+    func flatMap<U>(_ transform: (RawValue) throws -> U? ) rethrows -> U?
+    {
+        if
+            let result = try transform(rawValue)
+        {
+            return result
+        }
+        else
+        {
+            return nil
+        }
     }
 }

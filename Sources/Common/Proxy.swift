@@ -25,34 +25,11 @@
  */
 
 /**
- Closure/function that implements transition into a new state.
-
- - Parameters:
-
- - stateOwner: Object-owner of the state.
-
- - mutations: Mutations/statements that must be performed exactly once in order to complete transition into the new state; must be called on MAIN trhead/queue.
-
- - completion: Completion closure; must be called on MAIN trhead/queue after `mutations` closure has been executed.
+ Represents type that implements proxy pattern.
+ https://en.wikipedia.org/wiki/Proxy_pattern
  */
 public
-typealias Transition<Subject: AnyObject> = (
-    Subject,
-    @escaping BasicClosure,
-    @escaping Completion
-    ) -> Void
-
-//---
-
-public
-enum DefaultTransitions // scope
+protocol Proxy
 {
-    /**
-     Helper constructor of transition that applies mutations instantly and calls completion right away.
-     */
-    static
-    func instant<T: AnyObject>() -> Transition<T>
-    {
-        return { $1(); $2(true) }
-    }
+    associatedtype Real
 }

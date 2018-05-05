@@ -24,35 +24,17 @@
 
  */
 
-/**
- Closure/function that implements transition into a new state.
-
- - Parameters:
-
- - stateOwner: Object-owner of the state.
-
- - mutations: Mutations/statements that must be performed exactly once in order to complete transition into the new state; must be called on MAIN trhead/queue.
-
- - completion: Completion closure; must be called on MAIN trhead/queue after `mutations` closure has been executed.
- */
 public
-typealias Transition<Subject: AnyObject> = (
-    Subject,
-    @escaping BasicClosure,
-    @escaping Completion
-    ) -> Void
-
-//---
-
-public
-enum DefaultTransitions // scope
+enum Utils
 {
-    /**
-     Helper constructor of transition that applies mutations instantly and calls completion right away.
-     */
+    public
     static
-    func instant<T: AnyObject>() -> Transition<T>
+    func debug(if shouldExecute: Bool = true, _ handler: () -> Void)
     {
-        return { $1(); $2(true) }
+        #if DEBUG
+
+        if shouldExecute { handler() }
+
+        #endif
     }
 }

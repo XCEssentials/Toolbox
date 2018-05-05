@@ -24,35 +24,39 @@
 
  */
 
-/**
- Closure/function that implements transition into a new state.
-
- - Parameters:
-
- - stateOwner: Object-owner of the state.
-
- - mutations: Mutations/statements that must be performed exactly once in order to complete transition into the new state; must be called on MAIN trhead/queue.
-
- - completion: Completion closure; must be called on MAIN trhead/queue after `mutations` closure has been executed.
- */
-public
-typealias Transition<Subject: AnyObject> = (
-    Subject,
-    @escaping BasicClosure,
-    @escaping Completion
-    ) -> Void
+import UIKit
 
 //---
 
-public
-enum DefaultTransitions // scope
+/**
+ View that is menat to represent visible area
+ on a screen (not covered by any status bars or toolbars, etc.
+ It's not supposed to have any subviews,
+ at least not interactive ones.
+ */
+open
+class ViewPort: UIView
 {
-    /**
-     Helper constructor of transition that applies mutations instantly and calls completion right away.
-     */
-    static
-    func instant<T: AnyObject>() -> Transition<T>
+    override
+    init(frame: CGRect)
     {
-        return { $1(); $2(true) }
+        super.init(frame: frame)
+
+        //---
+
+        backgroundColor = .clear
+        isUserInteractionEnabled = false
+    }
+
+    public
+    required
+    init?(coder aDecoder: NSCoder)
+    {
+        super.init(coder: aDecoder)
+
+        //---
+
+        backgroundColor = .clear
+        isUserInteractionEnabled = false
     }
 }

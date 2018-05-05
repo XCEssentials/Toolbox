@@ -11,6 +11,17 @@
 		949B4DCB2030BE5600075451 /* NestedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949B4DCA2030BE5600075451 /* NestedType.swift */; };
 		94A20A63204D8A0B002253EF /* CustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A20A62204D8A0B002253EF /* CustomViewController.swift */; };
 		94A20A65204D8A30002253EF /* CustomViewController+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A20A64204D8A30002253EF /* CustomViewController+UIKit.swift */; };
+		94B9665D209C410800A0419A /* Proxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B9665C209C410800A0419A /* Proxy.swift */; };
+		94B9665F209C412500A0419A /* OptionalHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B9665E209C412500A0419A /* OptionalHelpers.swift */; };
+		94B96661209C412E00A0419A /* BoolHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B96660209C412E00A0419A /* BoolHelpers.swift */; };
+		94B96663209C413B00A0419A /* InlineConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B96662209C413B00A0419A /* InlineConfigurable.swift */; };
+		94B96665209C414D00A0419A /* Must.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B96664209C414D00A0419A /* Must.swift */; };
+		94B96667209C415A00A0419A /* MapRawRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B96666209C415A00A0419A /* MapRawRepresentable.swift */; };
+		94B96669209C417800A0419A /* BetterChaining.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B96668209C417800A0419A /* BetterChaining.swift */; };
+		94B9666B209C425D00A0419A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B9666A209C425D00A0419A /* Utils.swift */; };
+		94B9666D209C5A5700A0419A /* UIBarButtonItem+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B9666C209C5A5700A0419A /* UIBarButtonItem+Helpers.swift */; };
+		94F2BE45209CE5BF00215759 /* ViewPort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F2BE43209CE5BF00215759 /* ViewPort.swift */; };
+		94F2BE46209CE5BF00215759 /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F2BE44209CE5BF00215759 /* ContainerView.swift */; };
 		94F884C3201FBEAD00B8E2C1 /* AppInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F884B6201FBEAD00B8E2C1 /* AppInitializer.swift */; };
 		94F884C6201FBEAD00B8E2C1 /* AppComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F884B9201FBEAD00B8E2C1 /* AppComponent.swift */; };
 		94F884C7201FBEAD00B8E2C1 /* WithReferenceToItself.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F884BA201FBEAD00B8E2C1 /* WithReferenceToItself.swift */; };
@@ -44,6 +55,17 @@
 		949B4DCA2030BE5600075451 /* NestedType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedType.swift; sourceTree = "<group>"; };
 		94A20A62204D8A0B002253EF /* CustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewController.swift; sourceTree = "<group>"; };
 		94A20A64204D8A30002253EF /* CustomViewController+UIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomViewController+UIKit.swift"; sourceTree = "<group>"; };
+		94B9665C209C410800A0419A /* Proxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Proxy.swift; sourceTree = "<group>"; };
+		94B9665E209C412500A0419A /* OptionalHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionalHelpers.swift; sourceTree = "<group>"; };
+		94B96660209C412E00A0419A /* BoolHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoolHelpers.swift; sourceTree = "<group>"; };
+		94B96662209C413B00A0419A /* InlineConfigurable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InlineConfigurable.swift; sourceTree = "<group>"; };
+		94B96664209C414D00A0419A /* Must.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Must.swift; sourceTree = "<group>"; };
+		94B96666209C415A00A0419A /* MapRawRepresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapRawRepresentable.swift; sourceTree = "<group>"; };
+		94B96668209C417800A0419A /* BetterChaining.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BetterChaining.swift; sourceTree = "<group>"; };
+		94B9666A209C425D00A0419A /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		94B9666C209C5A5700A0419A /* UIBarButtonItem+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Helpers.swift"; sourceTree = "<group>"; };
+		94F2BE43209CE5BF00215759 /* ViewPort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewPort.swift; sourceTree = "<group>"; };
+		94F2BE44209CE5BF00215759 /* ContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
 		94F884B6201FBEAD00B8E2C1 /* AppInitializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppInitializer.swift; sourceTree = "<group>"; };
 		94F884B9201FBEAD00B8E2C1 /* AppComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppComponent.swift; sourceTree = "<group>"; };
 		94F884BA201FBEAD00B8E2C1 /* WithReferenceToItself.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WithReferenceToItself.swift; sourceTree = "<group>"; };
@@ -105,12 +127,20 @@
 		94F884B4201FBE7E00B8E2C1 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				94F884CF201FBF5D00B8E2C1 /* TemplatesSupport */,
 				94F884B9201FBEAD00B8E2C1 /* AppComponent.swift */,
 				94F884BC201FBEAD00B8E2C1 /* Injectable.swift */,
 				949B4DCA2030BE5600075451 /* NestedType.swift */,
-				94F884CF201FBF5D00B8E2C1 /* TemplatesSupport */,
 				94F884BA201FBEAD00B8E2C1 /* WithReferenceToItself.swift */,
 				94A20A62204D8A0B002253EF /* CustomViewController.swift */,
+				94B9665C209C410800A0419A /* Proxy.swift */,
+				94B9665E209C412500A0419A /* OptionalHelpers.swift */,
+				94B96660209C412E00A0419A /* BoolHelpers.swift */,
+				94B96662209C413B00A0419A /* InlineConfigurable.swift */,
+				94B96664209C414D00A0419A /* Must.swift */,
+				94B96666209C415A00A0419A /* MapRawRepresentable.swift */,
+				94B96668209C417800A0419A /* BetterChaining.swift */,
+				94B9666A209C425D00A0419A /* Utils.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -122,6 +152,9 @@
 				94F884C2201FBEAD00B8E2C1 /* BaseView.swift */,
 				94F884BB201FBEAD00B8E2C1 /* GUIInitializer.swift */,
 				94A20A64204D8A30002253EF /* CustomViewController+UIKit.swift */,
+				94B9666C209C5A5700A0419A /* UIBarButtonItem+Helpers.swift */,
+				94F2BE44209CE5BF00215759 /* ContainerView.swift */,
+				94F2BE43209CE5BF00215759 /* ViewPort.swift */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -183,7 +216,6 @@
 				CEFC0CE9EAC1523B4984CEC9 /* Sources */,
 				6515EC2CC10696C3F62B507A /* Frameworks */,
 				C6DB2BC64BB2D8DF6DD9F7CD /* Embed Frameworks */,
-				A1B1467A11A4869CB0B44C46 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -245,21 +277,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A1B1467A11A4869CB0B44C46 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Fwk/Pods-Fwk-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		B95ABED9A445B642F954FB95 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -286,13 +303,24 @@
 				94A20A65204D8A30002253EF /* CustomViewController+UIKit.swift in Sources */,
 				94F884CB201FBEAD00B8E2C1 /* AutoEquatable.swift in Sources */,
 				94A20A63204D8A0B002253EF /* CustomViewController.swift in Sources */,
+				94B96667209C415A00A0419A /* MapRawRepresentable.swift in Sources */,
 				94F884CE201FBEAD00B8E2C1 /* BaseView.swift in Sources */,
 				94F884CC201FBEAD00B8E2C1 /* ConcurrentProcess.swift in Sources */,
 				94F884C8201FBEAD00B8E2C1 /* GUIInitializer.swift in Sources */,
+				94B96665209C414D00A0419A /* Must.swift in Sources */,
 				94F884CD201FBEAD00B8E2C1 /* GUIPage.swift in Sources */,
 				94F884C9201FBEAD00B8E2C1 /* Injectable.swift in Sources */,
+				94B96663209C413B00A0419A /* InlineConfigurable.swift in Sources */,
+				94B9665D209C410800A0419A /* Proxy.swift in Sources */,
+				94B96669209C417800A0419A /* BetterChaining.swift in Sources */,
+				94B96661209C412E00A0419A /* BoolHelpers.swift in Sources */,
 				949B4DCB2030BE5600075451 /* NestedType.swift in Sources */,
+				94B9666B209C425D00A0419A /* Utils.swift in Sources */,
+				94B9666D209C5A5700A0419A /* UIBarButtonItem+Helpers.swift in Sources */,
+				94B9665F209C412500A0419A /* OptionalHelpers.swift in Sources */,
+				94F2BE46209CE5BF00215759 /* ContainerView.swift in Sources */,
 				94F884CA201FBEAD00B8E2C1 /* ServiceProvider.swift in Sources */,
+				94F2BE45209CE5BF00215759 /* ViewPort.swift in Sources */,
 				94F884C7201FBEAD00B8E2C1 /* WithReferenceToItself.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
