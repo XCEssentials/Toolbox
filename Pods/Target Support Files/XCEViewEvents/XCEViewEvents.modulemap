@@ -1,0 +1,6 @@
+framework module XCEViewEvents {
+  umbrella header "XCEViewEvents-umbrella.h"
+
+  export *
+  module * { export * }
+}

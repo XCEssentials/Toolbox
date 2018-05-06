@@ -1,0 +1,6 @@
+framework module XCEReusableView {
+  umbrella header "XCEReusableView-umbrella.h"
+
+  export *
+  module * { export * }
+}
