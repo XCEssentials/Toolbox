@@ -171,6 +171,7 @@ extension Array where Element: UIView
 
 //---
 
+public
 extension UIView
 {
     enum AnchorDescriptor
