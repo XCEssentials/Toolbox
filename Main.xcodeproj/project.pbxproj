@@ -30,6 +30,7 @@
 		94F2BE79209EE3F500215759 /* VisualComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F2BE78209EE3F500215759 /* VisualComponent.swift */; };
 		94F2BE7F209F3BBE00215759 /* Kingfisher+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F2BE7E209F3BBE00215759 /* Kingfisher+Helpers.swift */; };
 		94F2BE81209F3E2F00215759 /* Mortar+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F2BE80209F3E2F00215759 /* Mortar+Helpers.swift */; };
+		94F2BE83209F456800215759 /* PromiseKit+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F2BE82209F456800215759 /* PromiseKit+Helpers.swift */; };
 		94F884C3201FBEAD00B8E2C1 /* AppInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F884B6201FBEAD00B8E2C1 /* AppInitializer.swift */; };
 		94F884C6201FBEAD00B8E2C1 /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F884B9201FBEAD00B8E2C1 /* Component.swift */; };
 		94F884C7201FBEAD00B8E2C1 /* WithReferenceToItself.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F884BA201FBEAD00B8E2C1 /* WithReferenceToItself.swift */; };
@@ -82,6 +83,7 @@
 		94F2BE78209EE3F500215759 /* VisualComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualComponent.swift; sourceTree = "<group>"; };
 		94F2BE7E209F3BBE00215759 /* Kingfisher+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Kingfisher+Helpers.swift"; sourceTree = "<group>"; };
 		94F2BE80209F3E2F00215759 /* Mortar+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Mortar+Helpers.swift"; sourceTree = "<group>"; };
+		94F2BE82209F456800215759 /* PromiseKit+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PromiseKit+Helpers.swift"; sourceTree = "<group>"; };
 		94F884B6201FBEAD00B8E2C1 /* AppInitializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppInitializer.swift; sourceTree = "<group>"; };
 		94F884B9201FBEAD00B8E2C1 /* Component.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
 		94F884BA201FBEAD00B8E2C1 /* WithReferenceToItself.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WithReferenceToItself.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				94B96666209C415A00A0419A /* MapRawRepresentable.swift */,
 				94B96668209C417800A0419A /* BetterChaining.swift */,
 				94B9666A209C425D00A0419A /* Utils.swift */,
+				94F2BE82209F456800215759 /* PromiseKit+Helpers.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				94F2BE45209CE5BF00215759 /* ViewPort.swift in Sources */,
 				94F2BE48209DB92200215759 /* BaseCell.swift in Sources */,
 				94F884C7201FBEAD00B8E2C1 /* WithReferenceToItself.swift in Sources */,
+				94F2BE83209F456800215759 /* PromiseKit+Helpers.swift in Sources */,
 				94F2BE7F209F3BBE00215759 /* Kingfisher+Helpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
