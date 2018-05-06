@@ -31,6 +31,7 @@
 		94F2BE7F209F3BBE00215759 /* Kingfisher+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F2BE7E209F3BBE00215759 /* Kingfisher+Helpers.swift */; };
 		94F2BE81209F3E2F00215759 /* Mortar+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F2BE80209F3E2F00215759 /* Mortar+Helpers.swift */; };
 		94F2BE83209F456800215759 /* PromiseKit+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F2BE82209F456800215759 /* PromiseKit+Helpers.swift */; };
+		94F2BE85209F465500215759 /* BaseNavCtr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F2BE84209F465500215759 /* BaseNavCtr.swift */; };
 		94F884C3201FBEAD00B8E2C1 /* AppInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F884B6201FBEAD00B8E2C1 /* AppInitializer.swift */; };
 		94F884C6201FBEAD00B8E2C1 /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F884B9201FBEAD00B8E2C1 /* Component.swift */; };
 		94F884C7201FBEAD00B8E2C1 /* WithReferenceToItself.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F884BA201FBEAD00B8E2C1 /* WithReferenceToItself.swift */; };
@@ -84,6 +85,7 @@
 		94F2BE7E209F3BBE00215759 /* Kingfisher+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Kingfisher+Helpers.swift"; sourceTree = "<group>"; };
 		94F2BE80209F3E2F00215759 /* Mortar+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Mortar+Helpers.swift"; sourceTree = "<group>"; };
 		94F2BE82209F456800215759 /* PromiseKit+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PromiseKit+Helpers.swift"; sourceTree = "<group>"; };
+		94F2BE84209F465500215759 /* BaseNavCtr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavCtr.swift; sourceTree = "<group>"; };
 		94F884B6201FBEAD00B8E2C1 /* AppInitializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppInitializer.swift; sourceTree = "<group>"; };
 		94F884B9201FBEAD00B8E2C1 /* Component.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
 		94F884BA201FBEAD00B8E2C1 /* WithReferenceToItself.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WithReferenceToItself.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 			children = (
 				94F2BE4B209DBF6C00215759 /* OnePixel.swift */,
 				94F884B6201FBEAD00B8E2C1 /* AppInitializer.swift */,
+				94F2BE84209F465500215759 /* BaseNavCtr.swift */,
 				94F2BE72209E390800215759 /* BaseViewCtr.swift */,
 				94F884C2201FBEAD00B8E2C1 /* BaseView.swift */,
 				94F2BE47209DB92200215759 /* BaseCell.swift */,
@@ -325,6 +328,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94F2BE85209F465500215759 /* BaseNavCtr.swift in Sources */,
 				94F884C6201FBEAD00B8E2C1 /* Component.swift in Sources */,
 				94F884C3201FBEAD00B8E2C1 /* AppInitializer.swift in Sources */,
 				94F2BE81209F3E2F00215759 /* Mortar+Helpers.swift in Sources */,
