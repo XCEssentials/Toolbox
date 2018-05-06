@@ -1,5 +1,8 @@
 PODS:
   - Kingfisher (4.3.1)
+  - Mortar/Core_NoCreatable (1.4.0.3)
+  - Mortar/MortarVFL_NoCreatable (1.4.0.3):
+    - Mortar/Core_NoCreatable
   - RandomColorSwift (1.0.0)
   - XCEFunctionalState (4.0.1)
   - XCEModelDependable (1.1.1)
@@ -10,9 +13,12 @@ PODS:
   - XCEUniFlow (4.10.2):
     - XCERequirement (~> 1.6)
   - XCEViewEvents (1.1.1)
+  - XCEViewExt (1.0.3)
 
 DEPENDENCIES:
   - Kingfisher (~> 4.3.0)
+  - Mortar/Core_NoCreatable (~> 1.4.0)
+  - Mortar/MortarVFL_NoCreatable
   - RandomColorSwift (~> 1.0.0)
   - XCEFunctionalState (~> 4.0.0)
   - XCEModelDependable (~> 1.1.0)
@@ -20,10 +26,12 @@ DEPENDENCIES:
   - XCEStream (~> 1.1.0)
   - XCEUniFlow (~> 4.10.0)
   - XCEViewEvents (~> 1.1.0)
+  - XCEViewExt (~> 1.0.0)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Kingfisher
+    - Mortar
     - RandomColorSwift
     - XCEFunctionalState
     - XCEModelDependable
@@ -32,9 +40,11 @@ SPEC REPOS:
     - XCEStream
     - XCEUniFlow
     - XCEViewEvents
+    - XCEViewExt
 
 SPEC CHECKSUMS:
   Kingfisher: 75541c4b62f02e1fde6f9772303de3d9ebe8f5b3
+  Mortar: db4ce8d59d15295fba946a790fcab436e813bca9
   RandomColorSwift: 9f85058b721665d52d239ca166a913e083506444
   XCEFunctionalState: 94a5ba636aae90693bdaa4e46f5693dfd851dc2d
   XCEModelDependable: 6651c6ddf5cd6abe30ebf74d7284a10390a8bbbe
@@ -43,6 +53,7 @@ SPEC CHECKSUMS:
   XCEStream: 54d8c9714af35d78c747b6a2d61b04d83f6b6dc6
   XCEUniFlow: a63671597d9da559c9341a5a4ea17e58e4a0edb1
   XCEViewEvents: 30ea26fd5acda9f44fa469b0f90658935fcbfa2c
+  XCEViewExt: 4bedc1bcd544cffb52f8e53d7d7b2b3322fb2445
 
 PODFILE CHECKSUM: 47c7d7ca192d9ae5e59109a8e466065712ff6f9d
 

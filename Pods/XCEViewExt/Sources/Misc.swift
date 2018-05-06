@@ -24,47 +24,23 @@
  
  */
 
-import Foundation
+import UIKit
 
 //---
 
 public
-protocol InlineConfigurable: AnyObject { }
-
-//---
-
-public
-extension InlineConfigurable
+extension UIView
 {
-    @discardableResult
-    func configure(with configurationHandler: (Self) -> Void) -> Self
+    func findFirstResponder() -> UIView?
     {
-        configurationHandler(self)
-        
-        //---
-        
-        return self
+        if
+            isFirstResponder
+        {
+            return self
+        }
+        else
+        {
+            return subviews.reduce(nil) { $0 ?? $1.findFirstResponder() }
+        }
     }
 }
-
-//---
-
-infix operator </ : LogicalConjunctionPrecedence
-
-/**
- Small helper that helps to write cleaner object configuration code.
- */
-@discardableResult
-public
-func </ <T: InlineConfigurable>(object: T, handler: (T) -> Void) -> T
-{
-    object.configure(with: handler)
-
-    //---
-
-    return object
-}
-
-//---
-
-extension NSObject: InlineConfigurable { }

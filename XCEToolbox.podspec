@@ -38,8 +38,11 @@ Pod::Spec.new do |s|
   s.ios.framework             = 'UIKit'
 
   s.ios.dependency              'RandomColorSwift', '~> 1.0.0'
+  s.ios.dependency              'Mortar/Core_NoCreatable', '~> 1.4.0'
+  s.ios.dependency              'Mortar/MortarVFL_NoCreatable'
 
   s.ios.dependency              'XCEUniFlow', '~> 4.10.0'
+  s.ios.dependency              'XCEViewExt', '~> 1.0.0'
   s.ios.dependency              'XCEModelDependable', '~> 1.1.0'
   s.ios.dependency              'XCEViewEvents', '~> 1.1.0'
   s.ios.dependency              'XCEStream', '~> 1.1.0'
@@ -49,5 +52,17 @@ Pod::Spec.new do |s|
   # === macOS
 
   # s.osx.deployment_target   = '10.11'
+
+  # s.osx.dependency              'Mortar/Core_NoCreatable', '~> 1.4.0'
+  # s.osx.dependency              'Mortar/MortarVFL_NoCreatable'
+
+  # === tvOS
+
+  # s.tvos.dependency              'Mortar/Core_NoCreatable', '~> 1.4.0'
+  # s.tvos.dependency              'Mortar/MortarVFL_NoCreatable'
+
+  # === watchOS
+
+  # no Mortart! Check latest version, try to adopt or use SnapKit instead?
 
 end

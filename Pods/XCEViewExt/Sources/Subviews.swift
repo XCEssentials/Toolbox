@@ -24,22 +24,26 @@
  
  */
 
-import Foundation
+import UIKit
 
 //---
 
 public
-protocol InlineConfigurable: AnyObject { }
+protocol ViewContainer { }
+
+//---
+
+extension UIView: ViewContainer { }
 
 //---
 
 public
-extension InlineConfigurable
+extension ViewContainer where Self: UIView
 {
     @discardableResult
-    func configure(with configurationHandler: (Self) -> Void) -> Self
+    func addSubviews(_ views: UIView...) -> UIView
     {
-        configurationHandler(self)
+        views.forEach { self.addSubview($0) }
         
         //---
         
@@ -49,22 +53,62 @@ extension InlineConfigurable
 
 //---
 
-infix operator </ : LogicalConjunctionPrecedence
-
-/**
- Small helper that helps to write cleaner object configuration code.
- */
-@discardableResult
+@available(iOS 9.0, *)
 public
-func </ <T: InlineConfigurable>(object: T, handler: (T) -> Void) -> T
+extension ViewContainer where Self: UIStackView
 {
-    object.configure(with: handler)
-
-    //---
-
-    return object
+    @discardableResult
+    func addSubviews(_ views: UIView...) -> UIStackView
+    {
+        views.forEach { self.addArrangedSubview($0) }
+        
+        //---
+        
+        return self
+    }
 }
 
 //---
 
-extension NSObject: InlineConfigurable { }
+public
+extension UIView
+{
+    func removeAllConstraints()
+    {
+        removeConstraints(constraints)
+    }
+}
+
+//---
+
+public
+extension UIView
+{
+    func allSubviews() -> [UIView]
+    {
+        var result: [UIView] = []
+        
+        //---
+        
+        collectAllSubviews(into: &result)
+        
+        //---
+        
+        return result
+    }
+    
+    //---
+    
+    private
+    func collectAllSubviews(into list: inout [UIView])
+    {
+        for sv in subviews
+        {
+            list.append(sv)
+            
+            //---
+            
+            sv.collectAllSubviews(into: &list)
+        }
+    }
+}

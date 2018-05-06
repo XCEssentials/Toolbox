@@ -24,47 +24,37 @@
  
  */
 
-import Foundation
+import UIKit
 
 //---
 
 public
-protocol InlineConfigurable: AnyObject { }
-
-//---
-
-public
-extension InlineConfigurable
+extension UIView
 {
-    @discardableResult
-    func configure(with configurationHandler: (Self) -> Void) -> Self
+    var isVisible: Bool
     {
-        configurationHandler(self)
+        get
+        {
+            return !isHidden
+        }
         
-        //---
-        
-        return self
+        set
+        {
+            isHidden = !newValue
+        }
+    }
+    
+    //---
+    
+    func show()
+    {
+        isVisible = true
+    }
+    
+    //---
+    
+    func hide()
+    {
+        isVisible = false
     }
 }
-
-//---
-
-infix operator </ : LogicalConjunctionPrecedence
-
-/**
- Small helper that helps to write cleaner object configuration code.
- */
-@discardableResult
-public
-func </ <T: InlineConfigurable>(object: T, handler: (T) -> Void) -> T
-{
-    object.configure(with: handler)
-
-    //---
-
-    return object
-}
-
-//---
-
-extension NSObject: InlineConfigurable { }

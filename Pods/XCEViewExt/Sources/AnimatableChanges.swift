@@ -24,47 +24,70 @@
  
  */
 
-import Foundation
+import UIKit
 
 //---
 
 public
-protocol InlineConfigurable: AnyObject { }
+typealias Changes = () -> Void
+
+public
+typealias Completion = (Bool) -> Void
+
+public
+typealias Animation<View: UIView> = (View, @escaping Changes, Completion?) -> Void
 
 //---
 
 public
-extension InlineConfigurable
+protocol Animatable: class { }
+
+//---
+
+public
+extension Animatable where Self: UIView
 {
-    @discardableResult
-    func configure(with configurationHandler: (Self) -> Void) -> Self
+    func apply(
+        _ changesGetter: @escaping (Self) -> Void
+        ) -> PendingChanges<Self>
     {
-        configurationHandler(self)
-        
-        //---
-        
-        return self
+        return PendingChanges(view: self, body: { changesGetter(self) })
     }
 }
 
 //---
 
-infix operator </ : LogicalConjunctionPrecedence
-
-/**
- Small helper that helps to write cleaner object configuration code.
- */
-@discardableResult
 public
-func </ <T: InlineConfigurable>(object: T, handler: (T) -> Void) -> T
+struct PendingChanges<View: UIView>
 {
-    object.configure(with: handler)
-
-    //---
-
-    return object
+    let view: View
+    let body: Changes
 }
 
 //---
 
-extension NSObject: InlineConfigurable { }
+public
+extension PendingChanges
+{
+    func immediately()
+    {
+        body()
+    }
+    
+    func via(_ animation: Animation<View>)
+    {
+        animation(view, body, nil)
+    }
+    
+    func via(
+        _ animation: Animation<View>,
+        _ completion: @escaping Completion
+        )
+    {
+        animation(view, body, completion)
+    }
+}
+
+//---
+
+extension UIView: Animatable { }

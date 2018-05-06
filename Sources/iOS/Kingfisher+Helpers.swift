@@ -33,7 +33,6 @@ import Kingfisher
 extension UIImageView
 {
     /*
-
     typealias CompletionHandler = ((_ image: Image?, _ error: NSError?, _ cacheType: CacheType, _ imageURL: URL?) -> ())
      */
 
