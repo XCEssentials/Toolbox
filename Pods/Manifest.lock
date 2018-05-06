@@ -1,4 +1,5 @@
 PODS:
+  - Kingfisher (4.3.1)
   - RandomColorSwift (1.0.0)
   - XCEFunctionalState (4.0.1)
   - XCEModelDependable (1.1.1)
@@ -11,6 +12,7 @@ PODS:
   - XCEViewEvents (1.1.1)
 
 DEPENDENCIES:
+  - Kingfisher (~> 4.3.0)
   - RandomColorSwift (~> 1.0.0)
   - XCEFunctionalState (~> 4.0.0)
   - XCEModelDependable (~> 1.1.0)
@@ -21,6 +23,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - Kingfisher
     - RandomColorSwift
     - XCEFunctionalState
     - XCEModelDependable
@@ -31,6 +34,7 @@ SPEC REPOS:
     - XCEViewEvents
 
 SPEC CHECKSUMS:
+  Kingfisher: 75541c4b62f02e1fde6f9772303de3d9ebe8f5b3
   RandomColorSwift: 9f85058b721665d52d239ca166a913e083506444
   XCEFunctionalState: 94a5ba636aae90693bdaa4e46f5693dfd851dc2d
   XCEModelDependable: 6651c6ddf5cd6abe30ebf74d7284a10390a8bbbe

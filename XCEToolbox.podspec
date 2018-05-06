@@ -26,6 +26,8 @@ Pod::Spec.new do |s|
   s.source_files              = 'Sources/Common/**/*.swift'
   s.resource_bundle           = { s.name + '_CommonTemplates' => 'Templates/Common/**/*.stencil' }
 
+  s.dependency                  'Kingfisher', '~> 4.3.0'
+
   # === iOS
 
   s.ios.deployment_target     = '10.0'
