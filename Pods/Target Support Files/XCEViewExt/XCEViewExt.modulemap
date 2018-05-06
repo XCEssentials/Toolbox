@@ -1,0 +1,6 @@
+framework module XCEViewExt {
+  umbrella header "XCEViewExt-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -32,8 +32,8 @@ extension App: UIApplicationDelegate
 
         //---
 
-        window.map {
-
+        window.map
+        {
             $0.backgroundColor = .black
             {% for type in types.implementing.GUIInitializer %}
             $0.rootViewController = {{ type.name }}.setup(with: dispatcher.proxy)

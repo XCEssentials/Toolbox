@@ -30,18 +30,50 @@ import XCEFunctionalState
 
 //---
 
-public
+//swiftlint:disable comma
+open
 class BaseView: UIView
+    , WithReferenceToItself
+    //swiftlint:enable comma
 {
     // MARK: - Stateful support
 
     public
-    let dispatcher = Dispatcher() // to conform to FSTStateful
+    let dispatcher = Dispatcher()
 
-    // MARK: - injectable support
+    // MARK: - Initializers
 
     public
-    func onAfterInjected() { }
+    required
+    init()
+    {
+        super.init(frame: .zero)
+
+        //---
+
+        initialSetup()
+    }
+
+    public
+    required
+    init?(coder aDecoder: NSCoder)
+    {
+        fatalError("This class is supposed to be used from code only!")
+    }
+
+    open
+    func initialSetup()
+    {
+        // override me in subclass!
+    }
+
+    // MARK: - Injectable support
+
+    open
+    func onAfterInjected()
+    {
+        // Injectable support - override in subclass if needed
+    }
 }
 
 //---
@@ -54,13 +86,6 @@ extension BaseView: Injectable
     public
     func injected()
     {
-        for subview in subviews
-        {
-            subview.removeFromSuperview()
-        }
-
-        //---
-
         onAfterInjected()
     }
 }

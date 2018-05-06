@@ -51,7 +51,7 @@ enum DefaultTransitions // scope
      Helper constructor of transition that applies mutations instantly and calls completion right away.
      */
     static
-    func instant<T>() -> Transition<T>
+    func instant<T: AnyObject>() -> Transition<T>
     {
         return { $1(); $2(true) }
     }

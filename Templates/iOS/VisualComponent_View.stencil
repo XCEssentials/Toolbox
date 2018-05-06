@@ -1,0 +1,42 @@
+{% for type in types.implementing.VisualComponent %}
+// sourcery:inline:{{ type.name }}_View_BasicImports
+import XCEToolbox
+import XCEModelDependable
+import XCEFunctionalState
+import XCEViewEvents
+import XCEStream
+// sourcery:end
+
+//---
+
+extension {{ type.name }}
+{
+// sourcery:inline:{{ type.name }}_View_Core
+    typealias View = {{ type.name }}_View // to support preview in IB
+}
+
+//---
+
+//swiftlint:disable comma
+@IBDesignable
+class {{ type.name }}_View: BaseView
+    , Stateful
+    , ModelDependableView
+    , NestedType
+    //swiftlint:enable comma
+{
+    typealias Parent = {{ type.name }}
+
+    {% if type.implements.ImplicitViewModel %}
+    typealias ViewModel = Parent // SAME as Model!
+    {% else %}
+    typealias ViewModel = Parent.ViewModel
+    {% endif %}
+
+    // MARK: - Subviews
+
+    private
+    let viewPort = ViewPort()
+
+// sourcery:end
+{% endfor %}

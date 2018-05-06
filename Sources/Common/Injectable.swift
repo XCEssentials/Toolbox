@@ -41,7 +41,7 @@ protocol Injectable: NSObjectProtocol
     func onAfterInjected()
 
     @objc
-    func injected()
+    func injected() // the "injection" lib looks for this func
 }
 
 #endif
