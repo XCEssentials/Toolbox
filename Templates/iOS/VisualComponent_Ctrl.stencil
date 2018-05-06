@@ -1,0 +1,92 @@
+{% for type in types.implementing.VisualComponent %}
+// sourcery:inline:{{ type.name }}_Controller_Core
+import XCEToolbox
+import XCEUniFlow
+import XCEModelDependable
+
+//---
+
+extension {{ type.name }}
+{
+    //swiftlint:disable comma
+    class Controller: BaseViewCtr
+        , DispatcherInitializable
+        , ModelDependableViewCtrl
+        , NestedType
+        //swiftlint:enable comma
+    {
+        typealias Parent = {{ type.name }}
+
+        typealias Model = Parent
+        {% if type.implements.ImplicitViewModel %}
+        typealias ViewModel = Parent // SAME as Model!
+        {% else %}
+        typealias ViewModel = Parent.ViewModel
+        {% endif %}
+        typealias View = Parent.View
+
+        //---
+
+        let dispatcher: Dispatcher.Proxy
+
+        // MARK: - Initializers
+
+        required
+        init(with proxy: Dispatcher.Proxy)
+        {
+            dispatcher = proxy
+
+            //---
+
+            super.init(nibName: nil, bundle: nil)
+
+            //---
+
+            proxy.subscribe(self)
+        }
+
+        required
+        init?(coder aDecoder: NSCoder)
+        {
+            fatalError("Not supposed to be called!")
+        }
+    }
+}
+// sourcery:end
+
+// sourcery:inline:{{ type.name }}_Controller_CustomCodeDraft
+
+// MARK: - Overrides
+
+extension {{ type.name }}.Controller
+{
+    override
+    func loadView()
+    {
+        setupView()
+    }
+}
+
+// MARK: - UniFlow support
+
+extension {{ type.name }}.Controller: StateObserver
+{
+    static
+    let bindings: [ObserverBinding] = [
+
+        //
+    ]
+}
+
+// MARK: - Commands
+
+private
+extension {{ type.name }}.Controller
+{
+    func setupView()
+    {
+        view = View()
+    }
+}
+// sourcery:end
+{% endfor %}

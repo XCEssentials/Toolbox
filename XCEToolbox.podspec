@@ -35,8 +35,14 @@ Pod::Spec.new do |s|
 
   s.ios.framework             = 'UIKit'
 
+  s.ios.dependency              'RandomColorSwift', '~> 1.0.0'
+
   s.ios.dependency              'XCEUniFlow', '~> 4.10.0'
+  s.ios.dependency              'XCEModelDependable', '~> 1.1.0'
+  s.ios.dependency              'XCEViewEvents', '~> 1.1.0'
+  s.ios.dependency              'XCEStream', '~> 1.1.0'
   s.ios.dependency              'XCEFunctionalState', '~> 4.0.0'
+  s.ios.dependency              'XCEReusableView', '~> 1.1.0'
 
   # === macOS
 

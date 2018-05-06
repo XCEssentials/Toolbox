@@ -1,23 +1,44 @@
 PODS:
+  - RandomColorSwift (1.0.0)
   - XCEFunctionalState (4.0.1)
+  - XCEModelDependable (1.1.1)
   - XCERequirement (1.6.0)
+  - XCEReusableView (1.1.1)
+  - XCEStream (1.1.2):
+    - XCEViewEvents (~> 1.1.0)
   - XCEUniFlow (4.10.2):
     - XCERequirement (~> 1.6)
+  - XCEViewEvents (1.1.1)
 
 DEPENDENCIES:
+  - RandomColorSwift (~> 1.0.0)
   - XCEFunctionalState (~> 4.0.0)
+  - XCEModelDependable (~> 1.1.0)
+  - XCEReusableView (~> 1.1.0)
+  - XCEStream (~> 1.1.0)
   - XCEUniFlow (~> 4.10.0)
+  - XCEViewEvents (~> 1.1.0)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - RandomColorSwift
     - XCEFunctionalState
+    - XCEModelDependable
     - XCERequirement
+    - XCEReusableView
+    - XCEStream
     - XCEUniFlow
+    - XCEViewEvents
 
 SPEC CHECKSUMS:
+  RandomColorSwift: 9f85058b721665d52d239ca166a913e083506444
   XCEFunctionalState: 94a5ba636aae90693bdaa4e46f5693dfd851dc2d
+  XCEModelDependable: 6651c6ddf5cd6abe30ebf74d7284a10390a8bbbe
   XCERequirement: 4dbe5a3e19b4784dc3c6943ec9b929e7f7dd7ff5
+  XCEReusableView: 779b90fd4a56af29efc5528f5da5d085029bd3e7
+  XCEStream: 54d8c9714af35d78c747b6a2d61b04d83f6b6dc6
   XCEUniFlow: a63671597d9da559c9341a5a4ea17e58e4a0edb1
+  XCEViewEvents: 30ea26fd5acda9f44fa469b0f90658935fcbfa2c
 
 PODFILE CHECKSUM: 47c7d7ca192d9ae5e59109a8e466065712ff6f9d
 
