@@ -1,16 +1,16 @@
 PODS:
-  - Kingfisher (4.3.1)
+  - Kingfisher (4.7.0)
   - Mortar/Core_NoCreatable (1.4.0.3)
   - Mortar/MortarVFL_NoCreatable (1.4.0.3):
     - Mortar/Core_NoCreatable
-  - PromiseKit (6.1.2):
-    - PromiseKit/CorePromise (= 6.1.2)
-    - PromiseKit/Foundation (= 6.1.2)
-    - PromiseKit/UIKit (= 6.1.2)
-  - PromiseKit/CorePromise (6.1.2)
-  - PromiseKit/Foundation (6.1.2):
+  - PromiseKit (6.2.5):
+    - PromiseKit/CorePromise (= 6.2.5)
+    - PromiseKit/Foundation (= 6.2.5)
+    - PromiseKit/UIKit (= 6.2.5)
+  - PromiseKit/CorePromise (6.2.5)
+  - PromiseKit/Foundation (6.2.5):
     - PromiseKit/CorePromise
-  - PromiseKit/UIKit (6.1.2):
+  - PromiseKit/UIKit (6.2.5):
     - PromiseKit/CorePromise
   - RandomColorSwift (1.0.0)
   - XCEFunctionalState (4.0.1)
@@ -25,10 +25,10 @@ PODS:
   - XCEViewExt (1.0.3)
 
 DEPENDENCIES:
-  - Kingfisher (~> 4.3.0)
+  - Kingfisher (~> 4.7.0)
   - Mortar/Core_NoCreatable (~> 1.4.0)
   - Mortar/MortarVFL_NoCreatable
-  - PromiseKit (~> 6.1.0)
+  - PromiseKit (~> 6.2.0)
   - RandomColorSwift (~> 1.0.0)
   - XCEFunctionalState (~> 4.0.0)
   - XCEModelDependable (~> 1.1.0)
@@ -54,9 +54,9 @@ SPEC REPOS:
     - XCEViewExt
 
 SPEC CHECKSUMS:
-  Kingfisher: 75541c4b62f02e1fde6f9772303de3d9ebe8f5b3
+  Kingfisher: da6b005aa96d37698e3e4f1ccfe96a5b9bbf27d6
   Mortar: db4ce8d59d15295fba946a790fcab436e813bca9
-  PromiseKit: 4a3255c16f236bd8a6a6b070568cd27259c97381
+  PromiseKit: a26828b0a8d5874960dfdb575b57a70790ec36f1
   RandomColorSwift: 9f85058b721665d52d239ca166a913e083506444
   XCEFunctionalState: 94a5ba636aae90693bdaa4e46f5693dfd851dc2d
   XCEModelDependable: 6651c6ddf5cd6abe30ebf74d7284a10390a8bbbe
