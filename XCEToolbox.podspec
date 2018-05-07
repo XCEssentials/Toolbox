@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
   # === All platforms
 
   s.source_files              = 'Sources/Common/**/*.swift'
-  s.resource_bundle           = { s.name + '_CommonTemplates' => 'Templates/Common/**/*.stencil' }
+  s.resource_bundle           = { s.name + '_CommonTemplates' => 'Templates/Sourcery/Common/**/*.stencil' }
 
   s.dependency                  'Kingfisher', '~> 4.7.0'
   s.dependency                  'PromiseKit', '~> 6.2.0'
@@ -34,7 +34,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target     = '10.0'
 
   s.ios.source_files          = 'Sources/iOS/**/*.swift'
-  s.ios.resource_bundle       = { s.name + '_iOSTemplates' => 'Templates/iOS/**/*.stencil' }
+  s.ios.resource_bundle       = { s.name + '_iOSTemplates' => ['Templates/Sourcery/iOS/**/*.stencil', 'Templates/SwiftGen/iOS/**/*.stencil'] }
 
   s.ios.framework             = 'UIKit'
 
