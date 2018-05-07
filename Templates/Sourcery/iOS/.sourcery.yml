@@ -1,0 +1,13 @@
+sources:
+  - Sources/TARGET_NAME/
+  - Pods/
+templates:
+  # - Sources/TARGET_NAME/
+  # - Pods/Sourcery/Templates/AutoEquatable.stencil
+  # - Pods/XCEToolbox/Templates/Common/ConcurrentProcess.stencil
+  - Pods/XCEToolbox/Templates/iOS/App.stencil
+  # - Pods/XCEToolbox/Templates/iOS/VisualComponent_Ctrl.stencil
+  # - Pods/XCEToolbox/Templates/iOS/VisualComponent_View.stencil
+
+output:
+  Sources/TARGET_NAME/_Auto/

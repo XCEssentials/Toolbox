@@ -1,0 +1,8 @@
+# https://github.com/SwiftGen/SwiftGen#using-a-configuration-file
+
+xcassets:
+  paths:
+   - Resources/TARGET_NAME.xcassets
+  # templateName: swift4
+  templatePath: Pods/XCEToolbox/Templates/SwiftGen/xcassets-swift4-XCE.stencil
+  output: Sources/TARGET_NAME/_Auto/Assets.swift
