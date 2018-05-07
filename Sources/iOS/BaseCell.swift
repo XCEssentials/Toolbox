@@ -24,38 +24,72 @@
 
  */
 
-//import UIKit
-//
-//import XCEFunctionalState
-//import XCEReusableView
-//
-////---
-//
-//class BaseCell: UICollectionViewCell,
-//    CustomCell,
-//    WithReferenceToItself
-//{
-//    // MARK: - Stateful support
-//
-//    let dispatcher = Dispatcher()
-//
-//    // MARK: - Injectable support
-//
-//    func onAfterInjected() { }
-//}
-//
-////---
-//
-//#if DEBUG
-//
-//extension BaseCell: Injectable
-//{
-//    @objc
-//    public
-//    func injected()
-//    {
-//        onAfterInjected()
-//    }
-//}
-//
-//#endif
+import UIKit
+
+import XCEFunctionalState
+import XCEReusableView
+
+//---
+
+//swiftlint:disable comma
+open
+class BaseCell: UICollectionViewCell
+    , CustomCell
+    , WithReferenceToItself
+    //swiftlint:enable comma
+{
+    // MARK: - Stateful support
+
+    public
+    let dispatcher = Dispatcher()
+
+    // MARK: - Initializers
+
+    public
+    required
+    init()
+    {
+        super.init(frame: .zero)
+
+        //---
+
+        initialSetup()
+    }
+
+    public
+    required
+    init?(coder aDecoder: NSCoder)
+    {
+        fatalError("This class is supposed to be used from code only!")
+    }
+
+    open
+    func initialSetup()
+    {
+        // override me in subclass!
+    }
+
+    // MARK: - Injectable support
+
+    open
+    func onAfterInjected()
+    {
+        // Injectable support - override in subclass if needed
+    }
+}
+
+//---
+
+#if DEBUG
+
+extension BaseCell: Injectable
+{
+    @objc
+    public
+    func injected()
+    {
+        onAfterInjected()
+    }
+}
+
+#endif
