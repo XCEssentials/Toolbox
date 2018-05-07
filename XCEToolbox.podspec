@@ -38,6 +38,7 @@ Pod::Spec.new do |s|
 
   s.ios.framework             = 'UIKit'
 
+  s.ios.dependency              'SwiftGen', '~> 5.3.0'
   s.ios.dependency              'RandomColorSwift', '~> 1.0.0'
   s.ios.dependency              'Mortar/Core_NoCreatable', '~> 1.4.0'
   s.ios.dependency              'Mortar/MortarVFL_NoCreatable'

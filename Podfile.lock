@@ -13,6 +13,7 @@ PODS:
   - PromiseKit/UIKit (6.2.5):
     - PromiseKit/CorePromise
   - RandomColorSwift (1.0.0)
+  - SwiftGen (5.3.0)
   - XCEFunctionalState (4.0.1)
   - XCEModelDependable (1.1.1)
   - XCERequirement (1.6.0)
@@ -30,6 +31,7 @@ DEPENDENCIES:
   - Mortar/MortarVFL_NoCreatable
   - PromiseKit (~> 6.2.0)
   - RandomColorSwift (~> 1.0.0)
+  - SwiftGen (~> 5.3.0)
   - XCEFunctionalState (~> 4.0.0)
   - XCEModelDependable (~> 1.1.0)
   - XCEReusableView (~> 1.1.0)
@@ -44,6 +46,7 @@ SPEC REPOS:
     - Mortar
     - PromiseKit
     - RandomColorSwift
+    - SwiftGen
     - XCEFunctionalState
     - XCEModelDependable
     - XCERequirement
@@ -58,6 +61,7 @@ SPEC CHECKSUMS:
   Mortar: db4ce8d59d15295fba946a790fcab436e813bca9
   PromiseKit: a26828b0a8d5874960dfdb575b57a70790ec36f1
   RandomColorSwift: 9f85058b721665d52d239ca166a913e083506444
+  SwiftGen: 4379bd3640b0a212a0f6ea3c494adba385513d10
   XCEFunctionalState: 94a5ba636aae90693bdaa4e46f5693dfd851dc2d
   XCEModelDependable: 6651c6ddf5cd6abe30ebf74d7284a10390a8bbbe
   XCERequirement: 4dbe5a3e19b4784dc3c6943ec9b929e7f7dd7ff5
