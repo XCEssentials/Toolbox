@@ -46,10 +46,10 @@ class BaseCell: UICollectionViewCell
     // MARK: - Initializers
 
     public
-    required
-    init()
+    override
+    init(frame: CGRect)
     {
-        super.init(frame: .zero)
+        super.init(frame: frame)
 
         //---
 
