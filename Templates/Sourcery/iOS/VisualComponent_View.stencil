@@ -34,9 +34,5 @@ class {{ type.name }}_View: BaseView
     {% endif %}
 
     // MARK: - Subviews
-
-    private
-    let viewPort = ViewPort()
-
 // sourcery:end
 {% endfor %}
