@@ -50,9 +50,7 @@ extension LayoutConstraintKind
         ) -> LayoutConstraintKind
     {
         guard
-            constraint.isMember(of: NSLayoutConstraint.self), // only PUBLIC constraints!
-            let first = constraint.firstItem as? UIView,
-            let second = constraint.secondItem as? UIView
+            constraint.isMember(of: NSLayoutConstraint.self) // only PUBLIC constraints!
         else
         {
             return unknown
@@ -61,6 +59,9 @@ extension LayoutConstraintKind
         //---
 
         if
+            // this case is probably impossible - check NSLayoutConstraint docs!
+            let first = constraint.firstItem as? UIView,
+            let second = constraint.secondItem as? UIView,
             (first != currentView) && !nestedViews.contains(first), // first is an OUTER view
             second == currentView
         {
@@ -68,6 +69,8 @@ extension LayoutConstraintKind
         }
         else
         if
+            let first = constraint.firstItem as? UIView,
+            let second = constraint.secondItem as? UIView,
             first == currentView,
             (second != currentView) && !nestedViews.contains(second) // second is an OUTER view
         {
@@ -75,12 +78,9 @@ extension LayoutConstraintKind
         }
         else
         if
-            currentView == first, first == second
-        {
-            return itself
-        }
-        else
-        if
+            // this case is probably impossible - check NSLayoutConstraint docs!
+            let first = constraint.firstItem as? UIView,
+            let second = constraint.secondItem as? UIView,
             nestedViews.contains(first), // first is a NESTED view
             second == currentView
         {
@@ -88,10 +88,20 @@ extension LayoutConstraintKind
         }
         else
         if
+            let first = constraint.firstItem as? UIView,
+            let second = constraint.secondItem as? UIView,
             first == currentView,
             nestedViews.contains(second) // second is a NESTED view
         {
             return nested
+        }
+        else
+        if
+            let first = constraint.firstItem as? UIView,
+            first == currentView,
+            constraint.secondItem == nil
+        {
+            return itself
         }
 
         //---
