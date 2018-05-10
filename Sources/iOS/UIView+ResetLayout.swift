@@ -114,7 +114,7 @@ extension LayoutResettable where Self: UIView
      any intrinsic constraints), as well as internal constraints.
      See more: http://apprize.info/apple/ios_6/3.html
      */
-    func resetLayout(with defaultPolicy: Set<LayoutConstraintKind> = [.outer, .itself])
+    func resetLayout(_ defaultPolicy: Set<LayoutConstraintKind> = [.outer, .itself])
     {
         let nestedViews = allSubviews()
 
