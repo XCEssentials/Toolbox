@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
 
   s.name                      = companyPrefix + projName
   s.summary                   = projSummary
-  s.version                   = '1.7.4'
+  s.version                   = '1.8.0'
   s.homepage                  = companyGitHubPage + '/' + projName
 
   s.source                    = { :git => companyGitHubAccount + '/' + projName + '.git', :tag => s.version }
@@ -43,6 +43,7 @@ Pod::Spec.new do |s|
   s.ios.dependency              'Mortar/Core_NoCreatable', '~> 1.4.0'
   s.ios.dependency              'Mortar/MortarVFL_NoCreatable'
 
+  s.ios.dependency              'XCEArrayExt', '~> 1.1.0'
   s.ios.dependency              'XCEUniFlow', '~> 4.10.0'
   s.ios.dependency              'XCEViewExt', '~> 1.0.0'
   s.ios.dependency              'XCEModelDependable', '~> 1.1.0'
