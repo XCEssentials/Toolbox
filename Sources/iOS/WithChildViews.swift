@@ -26,71 +26,16 @@
 
 import UIKit
 
-import XCEFunctionalState
-import XCEReusableView
-
 //---
 
-//swiftlint:disable comma
-open
-class BaseCell: UICollectionViewCell
-    , CustomCell
-    , WithReferenceToItself
-    , WithChildViews
-    //swiftlint:enable comma
+public
+protocol WithChildViews { }
+
+public
+extension WithChildViews where Self: UIView
 {
-    // MARK: - Stateful support
-
-    public
-    let dispatcher = Dispatcher()
-
-    // MARK: - Initializers
-
-    public
-    override
-    init(frame: CGRect)
+    var childViews: [UIView]
     {
-        super.init(frame: frame)
-
-        //---
-
-        initialSetup()
-    }
-
-    public
-    required
-    init?(coder aDecoder: NSCoder)
-    {
-        fatalError("This class is supposed to be used from code only!")
-    }
-
-    open
-    func initialSetup()
-    {
-        // override me in subclass!
-    }
-
-    // MARK: - Injectable support
-
-    open
-    func onAfterInjected()
-    {
-        // Injectable support - override in subclass if needed
+        return Mirror(reflecting: self).children.compactMap{ $0.value as? UIView }
     }
 }
-
-//---
-
-#if DEBUG
-
-extension BaseCell: Injectable
-{
-    @objc
-    public
-    func injected()
-    {
-        onAfterInjected()
-    }
-}
-
-#endif

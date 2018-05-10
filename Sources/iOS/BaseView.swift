@@ -34,6 +34,7 @@ import XCEFunctionalState
 open
 class BaseView: UIView
     , WithReferenceToItself
+    , WithChildViews
     //swiftlint:enable comma
 {
     // MARK: - Stateful support
