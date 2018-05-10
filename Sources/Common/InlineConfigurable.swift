@@ -65,6 +65,20 @@ func </ <T: InlineConfigurable>(object: T, handler: (T) -> Void) -> T
     return object
 }
 
+/**
+ Small helper that helps to write cleaner object configuration code.
+ */
+@discardableResult
+public
+func </ <T: InlineConfigurable>(objects: [T], handler: (T) -> Void) -> [T]
+{
+    objects.forEach{ $0 </ handler }
+
+    //---
+
+    return objects
+}
+
 //---
 
 extension NSObject: InlineConfigurable { }
