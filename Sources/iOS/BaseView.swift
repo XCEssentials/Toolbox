@@ -73,7 +73,8 @@ class BaseView: UIView
     open
     func onAfterInjected()
     {
-        // Injectable support - override in subclass if needed
+        childViews.resetLayout()
+        initialSetup()
     }
 }
 

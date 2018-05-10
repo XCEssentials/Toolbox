@@ -110,38 +110,6 @@ func <</ (stack: UIStackView, elements: [UIView]) -> UIStackView
     return stack
 }
 
-/**
- Use this operator to define individual subview layout settings.
- */
-@discardableResult
-public
-func <</ <T: UIView>(object: T, handler: (T) -> Void) -> T
-{
-    object.resetLayout()
-
-    //---
-
-    return object </ handler
-}
-
-/**
- Use this operator to define multiple subviews layout settings at once.
- */
-@discardableResult
-public
-func <</ <T: UIView>(objects: [T], handler: (T) -> Void) -> [T]
-{
-    objects.forEach
-    {
-        $0.resetLayout()
-        $0 </ handler
-    }
-
-    //---
-
-    return objects
-}
-
 //---
 
 public
