@@ -24,5 +24,16 @@
 
  */
 
+import XCEModelDependable
+import XCEFunctionalState
+import XCEViewEvents
+import XCEStream
+
+//---
+
+/**
+ Declares that this visual feature will use
+ Model (Self) as ViewModel (model type for its view).
+ */
 public
-protocol GUIPage { }
+protocol ImplicitViewModel { }

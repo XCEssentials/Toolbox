@@ -24,18 +24,5 @@
 
  */
 
-import XCEUniFlow
-
-//---
-
 public
-protocol Component: Feature, HasNestedTypes { }
-
-//---
-
-public
-protocol VisualComponent: Component
-{
-    associatedtype Controller: NestedType where Controller.Parent == Self
-    associatedtype View: NestedType where View.Parent == Self
-}
+protocol AutoOnScreenFeature { }

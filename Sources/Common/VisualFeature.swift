@@ -24,16 +24,39 @@
 
  */
 
-import XCEModelDependable
-import XCEFunctionalState
-import XCEViewEvents
-import XCEStream
+import XCEUniFlow
+
+//---
+
+public
+extension Feature
+{
+    typealias EnclosingType = Self
+}
 
 //---
 
 /**
- Declares that this visual component will use
- Model (Self) as ViewModel as well (model type for its view).
+ Feature that has visual representation in GUI. Expected to have custom ViewController and View.
  */
 public
-protocol ImplicitViewModel { }
+protocol VisualFeature: Feature
+{
+    associatedtype Controller: NestedType where Controller.Parent == Self
+    associatedtype View: NestedType where View.Parent == Self
+}
+
+/**
+ Feature that has visual representation in GUI. Expected to have custom ViewController only.
+ */
+public
+protocol VisualFeatureNoView: Feature
+{
+    associatedtype Controller: NestedType where Controller.Parent == Self
+}
+
+/**
+ Feature that has visual representation in GUI. No expectations on internal structure.
+ */
+public
+protocol VisualFeatureCustom: Feature { }
