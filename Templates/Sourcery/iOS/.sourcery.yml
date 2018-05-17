@@ -6,8 +6,10 @@ templates:
   # - Pods/Sourcery/Templates/AutoEquatable.stencil
   # - Pods/XCEToolbox/Templates/Common/ConcurrentProcess.stencil
   - Pods/XCEToolbox/Templates/iOS/App.stencil
-  # - Pods/XCEToolbox/Templates/iOS/VisualComponent_Ctrl.stencil
-  # - Pods/XCEToolbox/Templates/iOS/VisualComponent_View.stencil
+  # - Pods/XCEToolbox/Templates/iOS/AutoOnScreenFeature.stencil
+  # - Pods/XCEToolbox/Templates/iOS/VisualFeature_Ctrl.stencil
+  # - Pods/XCEToolbox/Templates/iOS/VisualFeature_View.stencil
+  # - Pods/XCEToolbox/Templates/iOS/VisualFeatureNoView_Ctrl.stencil
 
 output:
   Sources/TARGET_NAME/_Auto/
