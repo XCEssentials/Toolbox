@@ -1,4 +1,4 @@
-{% for type in types.implementing.VisualComponent %}
+{% for type in types.implementing.VisualFeature %}
 // sourcery:inline:{{ type.name }}_Controller_Core
 import XCEToolbox
 import XCEUniFlow

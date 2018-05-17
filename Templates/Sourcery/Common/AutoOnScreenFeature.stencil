@@ -1,0 +1,25 @@
+{% for type in types.implementing.AutoOnScreenFeature %}
+{% if type.implements.Feature %}
+// sourcery:file:{{ type.name|replace:".","_" }}_OnScreen.swift
+import XCEUniFlow
+
+//---
+
+extension {{ type.name }}
+{
+    enum OnScreen: Feature, NoBindings
+    {
+        struct ShouldAppear: StateAuto { typealias Parent = OnScreen }
+
+        struct Appearing: StateAuto { typealias Parent = OnScreen }
+
+        struct Ready: StateAuto { typealias Parent = OnScreen }
+
+        struct ShouldDisappear: StateAuto { typealias Parent = OnScreen }
+
+        struct Disappearing: StateAuto { typealias Parent = OnScreen }
+    }
+}
+// sourcery:end
+{% endif %}
+{% endfor %}
