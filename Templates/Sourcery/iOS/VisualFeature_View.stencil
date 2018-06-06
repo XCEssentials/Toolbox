@@ -6,11 +6,6 @@ import XCEFunctionalState
 import XCEViewEvents
 import XCEStream
 // sourcery:end
-
-//---
-
-extension {{ type.name }}
-{
 // sourcery:inline:{{ type.name }}_View_Core
     typealias View = {{ type.name }}_View // to support preview in IB
 }
@@ -33,6 +28,5 @@ class {{ type.name }}_View: BaseView
     typealias ViewModel = Parent.ViewModel
     {% endif %}
 
-    // MARK: - Subviews
 // sourcery:end
 {% endfor %}
