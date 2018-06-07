@@ -8,11 +8,11 @@ import XCERequirement
 
 extension {{ type.name }}
 {
-    struct Idle: StateAuto { typealias Parent = {{ type.name }}
+    struct Idle: StateAuto { typealias Parent = EnclosingType
 
     }
 
-    struct Running: State { typealias Parent = {{ type.name }}
+    struct Running: State { typealias Parent = EnclosingType
 
         let startedAt = Date()
         let processId: UUID
@@ -20,13 +20,13 @@ extension {{ type.name }}
         let flow: CancelToken
     }
 
-    struct Failed: State { typealias Parent = {{ type.name }}
+    struct Failed: State { typealias Parent = EnclosingType
 
         let input: Input
         let error: Error
     }
 
-    struct Succeeded: State { typealias Parent = {{ type.name }}
+    struct Succeeded: State { typealias Parent = EnclosingType
 
         let input: Input
         let output: Output

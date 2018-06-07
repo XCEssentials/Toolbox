@@ -15,7 +15,7 @@ extension {{ type.name }}
         , NestedType
         //swiftlint:enable comma
     {
-        typealias Parent = {{ type.name }}
+        typealias Parent = EnclosingType
 
         typealias Model = Parent
         {% if type.implements.ImplicitViewModel %}
