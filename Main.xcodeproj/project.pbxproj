@@ -17,7 +17,6 @@
 		94B96663209C413B00A0419A /* InlineConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B96662209C413B00A0419A /* InlineConfigurable.swift */; };
 		94B96665209C414D00A0419A /* Must.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B96664209C414D00A0419A /* Must.swift */; };
 		94B96667209C415A00A0419A /* MapRawRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B96666209C415A00A0419A /* MapRawRepresentable.swift */; };
-		94B96669209C417800A0419A /* BetterChaining.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B96668209C417800A0419A /* BetterChaining.swift */; };
 		94B9666B209C425D00A0419A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B9666A209C425D00A0419A /* Utils.swift */; };
 		94B9666D209C5A5700A0419A /* UIBarButtonItem+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B9666C209C5A5700A0419A /* UIBarButtonItem+Helpers.swift */; };
 		94F2BE45209CE5BF00215759 /* ViewPort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F2BE43209CE5BF00215759 /* ViewPort.swift */; };
@@ -74,7 +73,6 @@
 		94B96662209C413B00A0419A /* InlineConfigurable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InlineConfigurable.swift; sourceTree = "<group>"; };
 		94B96664209C414D00A0419A /* Must.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Must.swift; sourceTree = "<group>"; };
 		94B96666209C415A00A0419A /* MapRawRepresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapRawRepresentable.swift; sourceTree = "<group>"; };
-		94B96668209C417800A0419A /* BetterChaining.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BetterChaining.swift; sourceTree = "<group>"; };
 		94B9666A209C425D00A0419A /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		94B9666C209C5A5700A0419A /* UIBarButtonItem+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Helpers.swift"; sourceTree = "<group>"; };
 		94F2BE43209CE5BF00215759 /* ViewPort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewPort.swift; sourceTree = "<group>"; };
@@ -165,7 +163,6 @@
 				94B96662209C413B00A0419A /* InlineConfigurable.swift */,
 				94B96664209C414D00A0419A /* Must.swift */,
 				94B96666209C415A00A0419A /* MapRawRepresentable.swift */,
-				94B96668209C417800A0419A /* BetterChaining.swift */,
 				94B9666A209C425D00A0419A /* Utils.swift */,
 				94F2BE82209F456800215759 /* PromiseKit+Helpers.swift */,
 			);
@@ -356,7 +353,6 @@
 				94F2BE50209DC2B100215759 /* Utils+DebugStyling.swift in Sources */,
 				94B96663209C413B00A0419A /* InlineConfigurable.swift in Sources */,
 				94B9665D209C410800A0419A /* Proxy.swift in Sources */,
-				94B96669209C417800A0419A /* BetterChaining.swift in Sources */,
 				94B96661209C412E00A0419A /* BoolHelpers.swift in Sources */,
 				949B4DCB2030BE5600075451 /* NestedType.swift in Sources */,
 				94B9666B209C425D00A0419A /* Utils.swift in Sources */,

@@ -43,4 +43,13 @@ extension Optional
             throw FoundNilWhileUnwrap()
         }
     }
+
+    //---
+
+    func end(
+        _ finalOperation: @escaping (Wrapped) throws -> Void
+        ) rethrows
+    {
+        _ = try self.map{ try finalOperation($0) }
+    }
 }
