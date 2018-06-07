@@ -4,6 +4,16 @@ import XCEValidatableValue
 //---
 
 public
+func take<T>(
+    _ initialValue: T
+    ) -> PromiseKit.Guarantee<T>
+{
+    return PromiseKit.Guarantee.value(initialValue)
+}
+
+//---
+
+public
 extension PromiseKit.Thenable
 {
     /**
