@@ -23,6 +23,7 @@ PODS:
     - XCEViewEvents (~> 1.1.0)
   - XCEUniFlow (4.10.2):
     - XCERequirement (~> 1.6)
+  - XCEValidatableValue (3.1.3)
   - XCEViewEvents (1.1.1)
   - XCEViewExt (1.0.3)
 
@@ -39,11 +40,12 @@ DEPENDENCIES:
   - XCEReusableView (~> 1.1.0)
   - XCEStream (~> 1.1.0)
   - XCEUniFlow (~> 4.10.0)
+  - XCEValidatableValue (~> 3.1.0)
   - XCEViewEvents (~> 1.1.0)
   - XCEViewExt (~> 1.0.0)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - Kingfisher
     - Mortar
     - PromiseKit
@@ -56,6 +58,7 @@ SPEC REPOS:
     - XCEReusableView
     - XCEStream
     - XCEUniFlow
+    - XCEValidatableValue
     - XCEViewEvents
     - XCEViewExt
 
@@ -72,9 +75,10 @@ SPEC CHECKSUMS:
   XCEReusableView: 779b90fd4a56af29efc5528f5da5d085029bd3e7
   XCEStream: 54d8c9714af35d78c747b6a2d61b04d83f6b6dc6
   XCEUniFlow: a63671597d9da559c9341a5a4ea17e58e4a0edb1
+  XCEValidatableValue: 94372239e371daf83e3357f76d170e262b587c2b
   XCEViewEvents: 30ea26fd5acda9f44fa469b0f90658935fcbfa2c
   XCEViewExt: 4bedc1bcd544cffb52f8e53d7d7b2b3322fb2445
 
 PODFILE CHECKSUM: 47c7d7ca192d9ae5e59109a8e466065712ff6f9d
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.5.3
