@@ -54,7 +54,7 @@ extension {{ type.name }}
         return initialize.Into<Idle>.automatically()
     }
 
-    //===
+    //---
 
     static
     func start(
@@ -93,7 +93,7 @@ extension {{ type.name }}
         }
     }
 
-    //===
+    //---
 
     static
     func fail(with processId: UUID, error: Error) -> Action
@@ -115,7 +115,7 @@ extension {{ type.name }}
         }
     }
 
-    //===
+    //---
 
     static
     func finish(
@@ -155,7 +155,7 @@ extension {{ type.name }}
         }
     }
 
-    //===
+    //---
 
     static
     func reset() -> Action

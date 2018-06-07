@@ -29,7 +29,7 @@ extension Optional
 {
     struct FoundNilWhileUnwrap: Error { }
 
-    //===
+    //---
 
     func unwrap() throws -> Wrapped
     {
