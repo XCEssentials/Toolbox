@@ -25,31 +25,10 @@
  */
 
 public
-extension Optional
+protocol ValueValidator
 {
-    struct FoundNilWhileUnwrap: Error { }
+    associatedtype Input
 
-    //---
-
-    func unwrap() throws -> Wrapped
-    {
-        if
-            let result = self
-        {
-            return result
-        }
-        else
-        {
-            throw FoundNilWhileUnwrap()
-        }
-    }
-
-    //---
-
-    func end(
-        _ finalOperation: @escaping (Wrapped) throws -> Void
-        ) rethrows
-    {
-        _ = try self.map{ try finalOperation($0) }
-    }
+    static
+    var conditions: [Condition<Input>] { get }
 }

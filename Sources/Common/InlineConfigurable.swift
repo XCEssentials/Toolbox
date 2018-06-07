@@ -26,13 +26,17 @@
 
 import Foundation
 
+// TODO: Remove whole file in a 1.12+ version release!
+
 //---
 
+@available(*, deprecated, message: "Use Pipeline helpers instead!")
 public
 protocol InlineConfigurable: AnyObject { }
 
 //---
 
+@available(*, deprecated, message: "Use Pipeline helpers instead!")
 public
 extension InlineConfigurable
 {
@@ -54,6 +58,7 @@ infix operator </ : LogicalConjunctionPrecedence
 /**
  Small helper that helps to write cleaner object configuration code.
  */
+@available(*, deprecated, message: "Use Pipeline helpers instead!")
 @discardableResult
 public
 func </ <T: InlineConfigurable>(object: T, handler: (T) -> Void) -> T
@@ -68,6 +73,7 @@ func </ <T: InlineConfigurable>(object: T, handler: (T) -> Void) -> T
 /**
  Small helper that helps to write cleaner object configuration code.
  */
+@available(*, deprecated, message: "Use Pipeline helpers instead!")
 @discardableResult
 public
 func </ <T: InlineConfigurable>(objects: [T], handler: (T) -> Void) -> [T]
@@ -81,4 +87,5 @@ func </ <T: InlineConfigurable>(objects: [T], handler: (T) -> Void) -> [T]
 
 //---
 
+@available(*, deprecated, message: "Use Pipeline helpers instead!")
 extension NSObject: InlineConfigurable { }

@@ -25,31 +25,42 @@
  */
 
 public
-extension Optional
+enum ValidatableValueError: Error
 {
-    struct FoundNilWhileUnwrap: Error { }
+    case valueNotSet
+    case conditionCheckFailed(context: String, input: Any, condition: String)
+    case validationFailed(context: String, input: Any, failedConditions: [String])
+}
 
-    //---
+//---
 
-    func unwrap() throws -> Wrapped
+extension ValidatableValueError: CustomStringConvertible
+{
+    public
+    var description: String
     {
-        if
-            let result = self
+        switch self
         {
-            return result
-        }
-        else
-        {
-            throw FoundNilWhileUnwrap()
-        }
-    }
+            case .valueNotSet:
+                return "Value is not set."
 
-    //---
+            case .conditionCheckFailed(let context, let input, let condition):
+                return """
+                    ======
+                    Context: \(context).
+                    Input: \(input).
+                    Failed condition: \(condition).
+                    ---/
+                    """
 
-    func end(
-        _ finalOperation: @escaping (Wrapped) throws -> Void
-        ) rethrows
-    {
-        _ = try self.map{ try finalOperation($0) }
+            case .validationFailed(let context, let input, let failedConditions):
+                return """
+                    ======
+                    Context: \(context).
+                    Input: \(input).
+                    Failed conditions: \(failedConditions).
+                    ---/
+                    """
+        }
     }
 }

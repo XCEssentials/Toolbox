@@ -1,0 +1,6 @@
+framework module XCEValidatableValue {
+  umbrella header "XCEValidatableValue-umbrella.h"
+
+  export *
+  module * { export * }
+}
