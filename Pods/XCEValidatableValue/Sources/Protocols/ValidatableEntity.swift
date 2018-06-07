@@ -25,31 +25,25 @@
  */
 
 public
-extension Optional
+protocol ValidatableEntity: Validatable, Codable {}
+
+//---
+
+/**
+ Data model type that supposed to store all (dynamic) important data
+ in various validatable value properties. Such properties will be automatically
+ checked for validity each time when whole entity is being tested for validity.
+ Those property will be also automatically encoded and decoded.
+ */
+public
+extension ValidatableEntity
 {
-    struct FoundNilWhileUnwrap: Error { }
-
-    //---
-
-    func unwrap() throws -> Wrapped
+    func validate() throws
     {
-        if
-            let result = self
-        {
-            return result
-        }
-        else
-        {
-            throw FoundNilWhileUnwrap()
-        }
-    }
-
-    //---
-
-    func end(
-        _ finalOperation: @escaping (Wrapped) throws -> Void
-        ) rethrows
-    {
-        _ = try self.map{ try finalOperation($0) }
+        try Mirror(reflecting: self)
+            .children
+            .map{ $0.value }
+            .compactMap{ $0 as? Validatable }
+            .forEach{ try $0.validate() }
     }
 }

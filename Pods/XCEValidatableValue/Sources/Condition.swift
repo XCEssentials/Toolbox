@@ -25,31 +25,71 @@
  */
 
 public
-extension Optional
+struct Condition<Input>
 {
-    struct FoundNilWhileUnwrap: Error { }
+    public
+    typealias Body = (_ input: Input) -> Bool
 
     //---
 
-    func unwrap() throws -> Wrapped
+    public
+    let description: String
+
+    private
+    let body: Body
+
+    // MARK: - Initializers
+
+    public
+    init(
+        _ description: String,
+        _ body: @escaping Body
+        )
     {
-        if
-            let result = self
-        {
-            return result
-        }
-        else
-        {
-            throw FoundNilWhileUnwrap()
-        }
+        self.description = description
+        self.body = body
     }
 
-    //---
-
-    func end(
-        _ finalOperation: @escaping (Wrapped) throws -> Void
-        ) rethrows
+    public
+    init()
     {
-        _ = try self.map{ try finalOperation($0) }
+        self.init("Any value") { _ in true }
     }
 }
+
+//---
+
+public
+extension Condition
+{
+    func isValid(value: Input) -> Bool
+    {
+        return body(value)
+    }
+
+    func validate(context: String, value: Input) throws
+    {
+        guard
+            body(value)
+        else
+        {
+            throw ValidatableValueError.conditionCheckFailed(
+                context: context,
+                input: value,
+                condition: description
+            )
+        }
+    }
+}
+
+//---
+
+extension Condition: CustomStringConvertible {}
+
+//---
+
+public
+typealias Check<Value> = Condition<Value>
+
+public
+typealias Conditions<Value> = [Condition<Value>]

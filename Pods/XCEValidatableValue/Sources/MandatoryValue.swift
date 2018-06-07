@@ -24,32 +24,48 @@
 
  */
 
+//---
+
 public
-extension Optional
+struct MandatoryValue<T: ValueValidator>: MandatoryValidatable
+    where T.Input: Codable, T.Input: Equatable
 {
-    struct FoundNilWhileUnwrap: Error { }
+    public
+    typealias RawValue = T.Input
 
-    //---
+    public
+    typealias Validator = T
 
-    func unwrap() throws -> Wrapped
+    public
+    var draft: T.Input?
+
+    public
+    init() {}
+}
+
+//---
+
+public
+struct MandatoryValueBase<T>: MandatoryValidatable
+    where T: Codable, T: Equatable
+{
+    public
+    typealias RawValue = T
+
+    public
+    enum Validator: ValueValidator
     {
-        if
-            let result = self
+        public
+        static
+        var conditions: [Condition<T>]
         {
-            return result
-        }
-        else
-        {
-            throw FoundNilWhileUnwrap()
+            return []
         }
     }
 
-    //---
+    public
+    var draft: T?
 
-    func end(
-        _ finalOperation: @escaping (Wrapped) throws -> Void
-        ) rethrows
-    {
-        _ = try self.map{ try finalOperation($0) }
-    }
+    public
+    init() {}
 }

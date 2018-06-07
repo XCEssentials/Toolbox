@@ -24,32 +24,46 @@
 
  */
 
+import XCEValidatableValue
+
+//---
+
 public
-extension Optional
+enum Value {} // scope
+
+//---
+
+public
+extension Value
 {
-    struct FoundNilWhileUnwrap: Error { }
+    /**
+     Intended to be a lightweight replacement for ‘guard … else’ statements.
 
-    //---
+     Usage (best works with Pipeline operators):
 
-    func unwrap() throws -> Wrapped
+     ```swift
+     try (40+2) .| Value.is(42)
+
+     try someBoolVar ./ Value.is(NO)
+
+     // in a closure with an implicit String parameter:
+     try $0 ./ Value.is("some text")
+     ```
+     */
+    static
+    func `is`<T: Equatable>(
+        file: StaticString = #file,
+        line: UInt = #line,
+        _ expectedValue: T
+        ) -> (T) throws -> Void
     {
-        if
-            let result = self
-        {
-            return result
-        }
-        else
-        {
-            throw FoundNilWhileUnwrap()
-        }
-    }
+        let check =
 
-    //---
+        Check<T>
+            .init("Value expected to be \(expectedValue)"){ $0 == expectedValue }
 
-    func end(
-        _ finalOperation: @escaping (Wrapped) throws -> Void
-        ) rethrows
-    {
-        _ = try self.map{ try finalOperation($0) }
+        //---
+
+        return { try check.validate(context: "file [\(file)] @ \(line)", value: $0) }
     }
 }

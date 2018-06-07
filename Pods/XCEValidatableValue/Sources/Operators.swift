@@ -25,31 +25,57 @@
  */
 
 public
-extension Optional
+func << <VV, T>(
+    container: inout VV,
+    newValue: T?
+    ) throws
+    where
+    VV: ValidatableValue,
+    VV.RawValue == T
 {
-    struct FoundNilWhileUnwrap: Error { }
+    try container.set(newValue)
+}
 
-    //---
+//---
 
-    func unwrap() throws -> Wrapped
-    {
-        if
-            let result = self
-        {
-            return result
-        }
-        else
-        {
-            throw FoundNilWhileUnwrap()
-        }
-    }
+infix operator <?
 
-    //---
+//---
 
-    func end(
-        _ finalOperation: @escaping (Wrapped) throws -> Void
-        ) rethrows
-    {
-        _ = try self.map{ try finalOperation($0) }
-    }
+public
+func <? <VV, T>(
+    container: inout VV,
+    newValue: T?
+    )
+    where
+    VV: ValidatableValue,
+    VV.RawValue == T
+{
+    container.draft = newValue
+}
+
+//---
+
+public
+func == <VV, T>(
+    container: VV,
+    value: T?
+    ) -> Bool
+    where
+    VV: ValidatableValue,
+    VV.RawValue == T
+{
+    return container.draft == value
+}
+
+public
+func == <VV, T>(
+    value: T?,
+    container: VV
+    ) -> Bool
+    where
+    VV: ValidatableValue,
+    VV.RawValue == T
+{
+    return container.draft == value
 }

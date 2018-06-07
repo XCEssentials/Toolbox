@@ -25,31 +25,27 @@
  */
 
 public
-extension Optional
+protocol Validatable
 {
-    struct FoundNilWhileUnwrap: Error { }
+    func validate() throws
+}
 
-    //---
+//---
 
-    func unwrap() throws -> Wrapped
+public
+extension Validatable
+{
+    var isValid: Bool
     {
-        if
-            let result = self
+        do
         {
-            return result
+            _ = try validate()
+
+            return true
         }
-        else
+        catch
         {
-            throw FoundNilWhileUnwrap()
+            return false
         }
-    }
-
-    //---
-
-    func end(
-        _ finalOperation: @escaping (Wrapped) throws -> Void
-        ) rethrows
-    {
-        _ = try self.map{ try finalOperation($0) }
     }
 }
