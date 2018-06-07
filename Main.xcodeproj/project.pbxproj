@@ -10,6 +10,7 @@
 		3B4F7668FA7EF16A50187AFC /* Pods_Fwk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B94A2425866CB41C7C671F /* Pods_Fwk.framework */; };
 		949B4DCB2030BE5600075451 /* NestedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949B4DCA2030BE5600075451 /* NestedType.swift */; };
 		949FF43C20C9CD890096DF80 /* Pipeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949FF43B20C9CD890096DF80 /* Pipeline.swift */; };
+		949FF43E20C9DA190096DF80 /* Value.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949FF43D20C9DA190096DF80 /* Value.swift */; };
 		94A20A63204D8A0B002253EF /* CustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A20A62204D8A0B002253EF /* CustomViewController.swift */; };
 		94A20A65204D8A30002253EF /* CustomViewController+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A20A64204D8A30002253EF /* CustomViewController+UIKit.swift */; };
 		94B9665D209C410800A0419A /* Proxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B9665C209C410800A0419A /* Proxy.swift */; };
@@ -67,6 +68,7 @@
 		9446042020AC8E2600B838B4 /* Templates */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Templates; sourceTree = "<group>"; };
 		949B4DCA2030BE5600075451 /* NestedType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedType.swift; sourceTree = "<group>"; };
 		949FF43B20C9CD890096DF80 /* Pipeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pipeline.swift; sourceTree = "<group>"; };
+		949FF43D20C9DA190096DF80 /* Value.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Value.swift; sourceTree = "<group>"; };
 		94A20A62204D8A0B002253EF /* CustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewController.swift; sourceTree = "<group>"; };
 		94A20A64204D8A30002253EF /* CustomViewController+UIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomViewController+UIKit.swift"; sourceTree = "<group>"; };
 		94B9665C209C410800A0419A /* Proxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Proxy.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				94B9666A209C425D00A0419A /* Utils.swift */,
 				94F2BE82209F456800215759 /* PromiseKit+Helpers.swift */,
 				949FF43B20C9CD890096DF80 /* Pipeline.swift */,
+				949FF43D20C9DA190096DF80 /* Value.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 				94F884C9201FBEAD00B8E2C1 /* Injectable.swift in Sources */,
 				94F2BE50209DC2B100215759 /* Utils+DebugStyling.swift in Sources */,
 				94B96663209C413B00A0419A /* InlineConfigurable.swift in Sources */,
+				949FF43E20C9DA190096DF80 /* Value.swift in Sources */,
 				94B9665D209C410800A0419A /* Proxy.swift in Sources */,
 				94B96661209C412E00A0419A /* BoolHelpers.swift in Sources */,
 				949B4DCB2030BE5600075451 /* NestedType.swift in Sources */,
