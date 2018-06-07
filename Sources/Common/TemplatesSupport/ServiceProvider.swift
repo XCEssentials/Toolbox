@@ -29,7 +29,12 @@ import XCEUniFlow
 //---
 
 public
-protocol ServiceProvider: Feature, NoBindings
+protocol ServiceProvider: Feature
 {
     associatedtype Service
 }
+
+//---
+
+public
+protocol ServiceProviderAuto: ServiceProvider, NoBindings {}

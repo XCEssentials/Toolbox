@@ -9,15 +9,15 @@ extension {{ type.name }}
 {
     enum OnScreen: Feature, NoBindings
     {
-        struct ShouldAppear: StateAuto { typealias Parent = OnScreen }
+        struct ShouldAppear: StateAuto { typealias Parent = EnclosingType }
 
-        struct Appearing: StateAuto { typealias Parent = OnScreen }
+        struct Appearing: StateAuto { typealias Parent = EnclosingType }
 
-        struct Ready: StateAuto { typealias Parent = OnScreen }
+        struct Ready: StateAuto { typealias Parent = EnclosingType }
 
-        struct ShouldDisappear: StateAuto { typealias Parent = OnScreen }
+        struct ShouldDisappear: StateAuto { typealias Parent = EnclosingType }
 
-        struct Disappearing: StateAuto { typealias Parent = OnScreen }
+        struct Disappearing: StateAuto { typealias Parent = EnclosingType }
     }
 }
 // sourcery:end

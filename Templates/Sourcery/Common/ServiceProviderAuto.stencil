@@ -1,4 +1,4 @@
-{% for type in types.implementing.ServiceProvider %}
+{% for type in types.implementing.ServiceProviderAuto %}
 // sourcery:file:{{ type.name|replace:".","_" }}_Base.swift
 import XCEUniFlow
 
@@ -6,14 +6,14 @@ import XCEUniFlow
 
 extension {{ type.name }}
 {
-    struct Ready: State { typealias Parent = {{ type.name }}
+    struct Ready: State { typealias Parent = EnclosingType
 
         let service: Service
     }
 
     //---
 
-    struct Unavailable: State { typealias Parent = {{ type.name }}
+    struct Unavailable: State { typealias Parent = EnclosingType
 
         let reason: String
     }
@@ -26,7 +26,11 @@ extension {{ type.name }}
     static
     func setup(with service: Service) -> Action
     {
-        return initialize.Into<Ready>.via { become, _ in
+        return initialize.Into<Ready>.via
+        {
+            become, _ in
+
+            //---
 
             become << Ready(service: service)
         }
