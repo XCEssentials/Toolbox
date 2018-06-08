@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3B4F7668FA7EF16A50187AFC /* Pods_Fwk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B94A2425866CB41C7C671F /* Pods_Fwk.framework */; };
+		946E131D20CAB684005C2C19 /* UniFlow_Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946E131C20CAB684005C2C19 /* UniFlow_Helpers.swift */; };
+		946E131F20CAB781005C2C19 /* PromiseKit+UniFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946E131E20CAB781005C2C19 /* PromiseKit+UniFlow.swift */; };
 		949B4DCB2030BE5600075451 /* NestedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949B4DCA2030BE5600075451 /* NestedType.swift */; };
 		949FF43C20C9CD890096DF80 /* Pipeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949FF43B20C9CD890096DF80 /* Pipeline.swift */; };
 		949FF43E20C9DA190096DF80 /* Value.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949FF43D20C9DA190096DF80 /* Value.swift */; };
@@ -66,6 +68,8 @@
 		38EEEBFE4C97DCD9DB9E36CD /* XCEToolbox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XCEToolbox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		66B94A2425866CB41C7C671F /* Pods_Fwk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fwk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9446042020AC8E2600B838B4 /* Templates */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Templates; sourceTree = "<group>"; };
+		946E131C20CAB684005C2C19 /* UniFlow_Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniFlow_Helpers.swift; sourceTree = "<group>"; };
+		946E131E20CAB781005C2C19 /* PromiseKit+UniFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PromiseKit+UniFlow.swift"; sourceTree = "<group>"; };
 		949B4DCA2030BE5600075451 /* NestedType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedType.swift; sourceTree = "<group>"; };
 		949FF43B20C9CD890096DF80 /* Pipeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pipeline.swift; sourceTree = "<group>"; };
 		949FF43D20C9DA190096DF80 /* Value.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Value.swift; sourceTree = "<group>"; };
@@ -169,6 +173,8 @@
 				94B96666209C415A00A0419A /* MapRawRepresentable.swift */,
 				94B9666A209C425D00A0419A /* Utils.swift */,
 				94F2BE82209F456800215759 /* PromiseKit+Helpers.swift */,
+				946E131C20CAB684005C2C19 /* UniFlow_Helpers.swift */,
+				946E131E20CAB781005C2C19 /* PromiseKit+UniFlow.swift */,
 				949FF43B20C9CD890096DF80 /* Pipeline.swift */,
 				949FF43D20C9DA190096DF80 /* Value.swift */,
 			);
@@ -367,10 +373,12 @@
 				94B9666D209C5A5700A0419A /* UIBarButtonItem+Helpers.swift in Sources */,
 				94B9665F209C412500A0419A /* OptionalHelpers.swift in Sources */,
 				94F2BE46209CE5BF00215759 /* ContainerView.swift in Sources */,
+				946E131F20CAB781005C2C19 /* PromiseKit+UniFlow.swift in Sources */,
 				949FF43C20C9CD890096DF80 /* Pipeline.swift in Sources */,
 				94F2BE79209EE3F500215759 /* ImplicitViewModel.swift in Sources */,
 				94F884CA201FBEAD00B8E2C1 /* ServiceProvider.swift in Sources */,
 				94F2BE45209CE5BF00215759 /* ViewPort.swift in Sources */,
+				946E131D20CAB684005C2C19 /* UniFlow_Helpers.swift in Sources */,
 				94F2BE48209DB92200215759 /* BaseCell.swift in Sources */,
 				94F6DFB520A42FFC00C28AC9 /* UIView+ResetLayout.swift in Sources */,
 				94F884C7201FBEAD00B8E2C1 /* WithReferenceToItself.swift in Sources */,
@@ -388,7 +396,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CLANG_ENABLE_MODULES = YES;
-				CURRENT_PROJECT_VERSION = 30;
+				CURRENT_PROJECT_VERSION = 31;
 				DEFINES_MODULE = YES;
 				ENABLE_TESTABILITY = YES;
 				INFOPLIST_FILE = Info/Fwk.plist;
@@ -438,7 +446,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 30;
+				CURRENT_PROJECT_VERSION = 31;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -472,7 +480,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CLANG_ENABLE_MODULES = YES;
-				CURRENT_PROJECT_VERSION = 30;
+				CURRENT_PROJECT_VERSION = 31;
 				DEFINES_MODULE = YES;
 				ENABLE_TESTABILITY = YES;
 				INFOPLIST_FILE = Info/Fwk.plist;
@@ -524,7 +532,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 30;
+				CURRENT_PROJECT_VERSION = 31;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
