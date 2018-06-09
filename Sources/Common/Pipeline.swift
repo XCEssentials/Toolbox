@@ -56,6 +56,7 @@ infix operator .| : CompositionPrecedence // final pass
  Special global-level helper operator
  for continuing chain/pipeline of transformations.
  */
+@discardableResult
 public
 func ./ <T, U>(value: T, function: (T) throws -> U) rethrows -> U
 {
@@ -66,6 +67,7 @@ func ./ <T, U>(value: T, function: (T) throws -> U) rethrows -> U
  Special global-level helper operator
  for finilizing chain/pipeline of transformations.
  */
+@available(*, deprecated, message: "Use the './' operator, it now marked with @discardableResult")
 public
 func .| <T>(value: T, function: (T) throws -> Void) rethrows
 {
