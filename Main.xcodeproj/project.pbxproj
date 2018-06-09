@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3B4F7668FA7EF16A50187AFC /* Pods_Fwk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B94A2425866CB41C7C671F /* Pods_Fwk.framework */; };
+		9459A03A20CBD53B00D4F644 /* Convert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9459A03920CBD53B00D4F644 /* Convert.swift */; };
 		946E131D20CAB684005C2C19 /* UniFlow_Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946E131C20CAB684005C2C19 /* UniFlow_Helpers.swift */; };
 		946E131F20CAB781005C2C19 /* PromiseKit+UniFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946E131E20CAB781005C2C19 /* PromiseKit+UniFlow.swift */; };
 		949B4DCB2030BE5600075451 /* NestedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949B4DCA2030BE5600075451 /* NestedType.swift */; };
@@ -68,6 +69,7 @@
 		38EEEBFE4C97DCD9DB9E36CD /* XCEToolbox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XCEToolbox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		66B94A2425866CB41C7C671F /* Pods_Fwk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fwk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9446042020AC8E2600B838B4 /* Templates */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Templates; sourceTree = "<group>"; };
+		9459A03920CBD53B00D4F644 /* Convert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Convert.swift; sourceTree = "<group>"; };
 		946E131C20CAB684005C2C19 /* UniFlow_Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniFlow_Helpers.swift; sourceTree = "<group>"; };
 		946E131E20CAB781005C2C19 /* PromiseKit+UniFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PromiseKit+UniFlow.swift"; sourceTree = "<group>"; };
 		949B4DCA2030BE5600075451 /* NestedType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedType.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				946E131E20CAB781005C2C19 /* PromiseKit+UniFlow.swift */,
 				949FF43B20C9CD890096DF80 /* Pipeline.swift */,
 				949FF43D20C9DA190096DF80 /* Value.swift */,
+				9459A03920CBD53B00D4F644 /* Convert.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				94F2BE85209F465500215759 /* BaseNavCtr.swift in Sources */,
+				9459A03A20CBD53B00D4F644 /* Convert.swift in Sources */,
 				94F884C6201FBEAD00B8E2C1 /* VisualFeature.swift in Sources */,
 				94F884C3201FBEAD00B8E2C1 /* AppInitializer.swift in Sources */,
 				94F2BE81209F3E2F00215759 /* Mortar+Helpers.swift in Sources */,
