@@ -48,6 +48,8 @@ precedencegroup CompositionPrecedence {
 
 infix operator ./ : CompositionPrecedence // pass through
 
+
+// TODO: Remove this operator in a 1.12+ version release!
 infix operator .| : CompositionPrecedence // final pass
 
 //---
@@ -56,16 +58,19 @@ infix operator .| : CompositionPrecedence // final pass
  Special global-level helper operator
  for continuing chain/pipeline of transformations.
  */
+@discardableResult
 public
 func ./ <T, U>(value: T, function: (T) throws -> U) rethrows -> U
 {
     return try function(value)
 }
 
+// TODO: Remove this operator in a 1.12+ version release!
 /**
  Special global-level helper operator
  for finilizing chain/pipeline of transformations.
  */
+@available(*, deprecated, message: "Use the './' operator, it now marked with @discardableResult")
 public
 func .| <T>(value: T, function: (T) throws -> Void) rethrows
 {
