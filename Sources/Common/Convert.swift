@@ -33,4 +33,5 @@
  _ = Convert.toSomeCustomType(sourceValue) // -> SomeCustomType
  ```
  */
+public
 enum Convert {}
