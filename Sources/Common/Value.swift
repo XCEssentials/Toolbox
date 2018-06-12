@@ -52,18 +52,15 @@ extension Value
      */
     static
     func `is`<T: Equatable>(
-        file: StaticString = #file,
-        line: UInt = #line,
         _ expectedValue: T
         ) -> (T) throws -> Void
     {
         let check =
 
-        Check<T>
-            .init("Value expected to be \(expectedValue)"){ $0 == expectedValue }
+        Check<T>("Value expected to be \(expectedValue)"){ $0 == expectedValue }
 
         //---
 
-        return { try check.validate(context: "file [\(file)] @ \(line)", value: $0) }
+        return { try check.validate(value: $0) }
     }
 }
