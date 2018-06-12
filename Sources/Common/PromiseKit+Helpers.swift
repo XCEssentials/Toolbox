@@ -60,16 +60,13 @@ extension PromiseKit.Thenable
      */
     func check(
         on queue: DispatchQueue? = PromiseKit.conf.Q.return,
-        file: StaticString = #file,
-        line: UInt = #line,
         _ description: String,
         _ condition: @escaping (Self.T) -> Bool
         ) -> PromiseKit.Promise<Self.T>
     {
         return self.get(on: queue)
         {
-            try Check(description, condition)
-                .validate(context: "file [\(file)] @ \(line)", value: $0)
+            try Check(description, condition).validate(value: $0)
         }
     }
 
@@ -182,15 +179,11 @@ extension PromiseKit.Thenable where Self.T : Collection
      to be non-nil.
      */
     func checkNonEmpty(
-        on queue: DispatchQueue? = PromiseKit.conf.Q.return,
-        file: StaticString = #file,
-        line: UInt = #line
+        on queue: DispatchQueue? = PromiseKit.conf.Q.return
         ) -> PromiseKit.Promise<Self.T>
     {
         return check(
             on: queue,
-            file: file,
-            line: line,
             "Collection is non-empty",
             { (input: Self.T) -> Bool in !input.isEmpty }
             )
