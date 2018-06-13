@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
 
   s.name                      = companyPrefix + projName
   s.summary                   = projSummary
-  s.version                   = '1.13.0'
+  s.version                   = '1.14.0'
   s.homepage                  = companyGitHubPage + '/' + projName
 
   s.source                    = { :git => companyGitHubAccount + '/' + projName + '.git', :tag => s.version }
