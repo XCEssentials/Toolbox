@@ -27,12 +27,6 @@
 public
 protocol ValidatableEntity: Entity, Validatable
 {
-    associatedtype Draft
-    associatedtype Valid
-
-    func draft() -> Draft
-    func valid() throws -> Valid
-
     func prepareValidationFailureReport(
         with issues: [ValidationError]
         ) -> (title: String, message: String)
@@ -114,8 +108,22 @@ extension ValidatableEntity
         ) -> (title: String, message: String)
     {
         let messages = issues
-            .map{ $0.report.message }
-            .map{ "- \($0)" }
+            .map{
+
+                if
+                    $0.hasNestedIssues // report from a nested entity...
+                {
+                    return """
+                        ———
+                        \($0.report.message)
+                        ———
+                        """
+                }
+                else
+                {
+                    return "- \($0.report.message)"
+                }
+            }
             .joined(separator: "\n")
 
         //---
@@ -123,7 +131,7 @@ extension ValidatableEntity
         return (
             title: "\"\(self.displayName)\" validation failed",
             message: """
-            \"\(self.displayName)\" validation failed due to the following issues:
+            \"\(self.displayName)\" validation failed due to the issues listed below.
             \(messages)
             """
         )
