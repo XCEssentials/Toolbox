@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
 
   s.name                      = companyPrefix + projName
   s.summary                   = projSummary
-  s.version                   = '1.16.0'
+  s.version                   = '1.17.0'
   s.homepage                  = companyGitHubPage + '/' + projName
 
   s.source                    = { :git => companyGitHubAccount + '/' + projName + '.git', :tag => s.version }
@@ -51,7 +51,7 @@ Pod::Spec.new do |s|
   s.ios.dependency              'XCEStream', '~> 1.1.0'
   s.ios.dependency              'XCEFunctionalState', '~> 4.0.0'
   s.ios.dependency              'XCEReusableView', '~> 1.1.0'
-  s.ios.dependency              'XCEValidatableValue', '~> 3.6.0'
+  s.ios.dependency              'XCEValidatableValue', '~> 3.7.0'
 
   # === macOS
 
