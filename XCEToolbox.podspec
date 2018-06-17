@@ -51,7 +51,7 @@ Pod::Spec.new do |s|
   s.ios.dependency              'XCEStream', '~> 1.1.0'
   s.ios.dependency              'XCEFunctionalState', '~> 4.0.0'
   s.ios.dependency              'XCEReusableView', '~> 1.1.0'
-  s.ios.dependency              'XCEValidatableValue', '~> 3.7.0'
+  s.ios.dependency              'XCEValidatableValue', '~> 3.8.0'
 
   # === macOS
 
