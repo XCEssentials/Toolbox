@@ -66,7 +66,7 @@ func ./ <T, U>(value: T, function: (T) throws -> U) rethrows -> U
     return try function(value)
 }
 
-// TODO: Remove this operator in a 1.12+ version release!
+// TODO: Remove this operator in a 1.12+ version release???
 /**
  Special global-level helper operator
  for finilizing chain/pipeline of transformations.
@@ -156,4 +156,56 @@ func check<T>(
     ) -> (T) throws -> T
 {
     return { try Check(description, condition).validate(value: $0); return $0 }
+}
+
+/**
+ Special global-level helper that's intended to stop passing
+ results through the chain.
+ THROWS!
+ */
+public
+func done<T>(
+    _ body: @escaping (T) throws -> Void
+    ) -> (T) throws -> Void
+{
+    return { try body($0) }
+}
+
+/**
+ Special global-level helper that's intended to stop passing
+ results through the chain.
+ */
+public
+func done<T>(
+    _ body: @escaping (T) -> Void
+    ) -> (T) -> Void
+{
+    return { body($0) }
+}
+
+/**
+ Special global-level helper that's intended to disregard
+ provided input and continue the chain with whatever will
+ be returned from 'body'.
+ THROWS!
+ */
+public
+func reset<T, U>(
+    _ body: @escaping () throws -> U
+    ) -> (T) throws -> U
+{
+    return { _ in return try body() }
+}
+
+/**
+ Special global-level helper that's intended to disregard
+ provided input and continue the chain with whatever will
+ be returned from 'body'.
+ */
+public
+func reset<T, U>(
+    _ body: @escaping () -> U
+    ) -> (T) -> U
+{
+    return { _ in return body() }
 }
