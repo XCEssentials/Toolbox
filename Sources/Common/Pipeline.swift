@@ -24,6 +24,8 @@
 
  */
 
+import XCEValidatableValue
+
 /**
  Set of helpers for chainable value transformations, pipeline-style.
 
@@ -47,7 +49,6 @@ precedencegroup CompositionPrecedence {
 //---
 
 infix operator ./ : CompositionPrecedence // pass through
-
 
 // TODO: Remove this operator in a 1.12+ version release!
 infix operator .| : CompositionPrecedence // final pass
@@ -105,10 +106,12 @@ func mutate<T>(
 
 /**
  Special global-level helper that's intended to be used
- for easy inline mutation of reference-type instances. THROWS!
+ for easy inline mutation of reference-type instances or
+ observation (read-only) access to value type instances.
+ THROWS!
  */
 public
-func use<T: AnyObject>(
+func use<T>(
     _ body: @escaping (T) throws -> Void
     ) -> (T) throws -> T
 {
@@ -117,12 +120,40 @@ func use<T: AnyObject>(
 
 /**
  Special global-level helper that's intended to be used
- for easy inline mutation of reference-type instances.
+ for easy inline mutation of reference-type instances or
+ observation (read-only) access to value type instances.
  */
 public
-func use<T: AnyObject>(
+func use<T>(
     _ body: @escaping (T) -> Void
     ) -> (T) -> T
 {
     return { body($0); return $0 }
+}
+
+/**
+ Special global-level helper that's intended to be used
+ for easy inline checking some conditions about provided input.
+ THROWS!
+ */
+public
+func check<T>(
+    _ body: @escaping (T) throws -> Void
+    ) -> (T) throws -> T
+{
+    return { try body($0); return $0 }
+}
+
+/**
+ Special global-level helper that's intended to be used
+ for easy inline checking some conditions about provided input.
+ THROWS!
+ */
+public
+func check<T>(
+    _ description: String,
+    _ condition: @escaping (T) -> Bool
+    ) -> (T) throws -> T
+{
+    return { try Check(description, condition).validate(value: $0); return $0 }
 }
